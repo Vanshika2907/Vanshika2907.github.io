@@ -1,0 +1,1633 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Jana Vanshika | Tech Garden Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout concept: one calm scrolling garden. An arched solarpunk window in the hero, then alternating
+   sage/cream bands. Skills are plots joined by glowing vines; experience grows along a vine. */
+:root{
+  --bg:#F8F5EA; --bg-alt:#EDF0DB; --surface:#FFFDF5; --ink:#17392C; --ink-soft:#496555; --line:#D0D9C0;
+  --forest:#1E5C3F; --moss:#6A8D47; --teal:#277A74; --gold:#D99A1E; --cyan:#17A0B8; --sage:#A8C4A0;
+  --on-accent:#FFFDF5; --accent:var(--forest);
+  --shadow:0 16px 36px -18px rgba(23,57,44,.4);
+  --sc-sky-top:#FFF4D2; --sc-sky-bot:#E3F0DA; --sc-far:#BCD3B4; --sc-bldg:#F4F0DD; --sc-win:#CFE3D6; --sc-lit:#7FD6E4;
+  --sc-leaf-a:#3B8A57; --sc-leaf-b:#7DB46A; --sc-trunk:#6B5B3E; --sc-ground:#4E8B5C; --sc-near:#2F6B48;
+  --sc-panel:#27708A; --sc-frame:#1E4A38; --sc-glass:#CDEBE6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1B14; --bg-alt:#112319; --surface:#162E22; --ink:#E6F0DB; --ink-soft:#A2B9A8; --line:#29473A;
+    --forest:#79CF9B; --moss:#A3CB72; --teal:#62C9BE; --gold:#EDB94A; --cyan:#5AD6EA; --sage:#3A6650;
+    --on-accent:#0D1B14; --shadow:0 16px 36px -18px rgba(0,0,0,.7);
+    --sc-sky-top:#1B3B2C; --sc-sky-bot:#10261B; --sc-far:#1F4533; --sc-bldg:#23463A; --sc-win:#2F5A49; --sc-lit:#7FE0EE;
+    --sc-leaf-a:#3FA06A; --sc-leaf-b:#7BBF6B; --sc-trunk:#8A7650; --sc-ground:#1B4A32; --sc-near:#123624;
+    --sc-panel:#1F6C86; --sc-frame:#7BAF95; --sc-glass:#6FB8A8;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1B14; --bg-alt:#112319; --surface:#162E22; --ink:#E6F0DB; --ink-soft:#A2B9A8; --line:#29473A;
+  --forest:#79CF9B; --moss:#A3CB72; --teal:#62C9BE; --gold:#EDB94A; --cyan:#5AD6EA; --sage:#3A6650;
+  --on-accent:#0D1B14; --shadow:0 16px 36px -18px rgba(0,0,0,.7);
+  --sc-sky-top:#1B3B2C; --sc-sky-bot:#10261B; --sc-far:#1F4533; --sc-bldg:#23463A; --sc-win:#2F5A49; --sc-lit:#7FE0EE;
+  --sc-leaf-a:#3FA06A; --sc-leaf-b:#7BBF6B; --sc-trunk:#8A7650; --sc-ground:#1B4A32; --sc-near:#123624;
+  --sc-panel:#1F6C86; --sc-frame:#7BAF95; --sc-glass:#6FB8A8;
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.65 'Figtree',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,h4{font-family:'Sora','Figtree',system-ui,sans-serif;font-weight:600;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
+.skip{position:absolute;left:-999px;top:8px;background:var(--surface);padding:8px 14px;border-radius:8px;z-index:100}
+.skip:focus{left:8px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s,color .25s}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px var(--accent)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px)}
+.btn-sm{padding:8px 16px;font-size:.85rem}
+[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+
+/* ---------- navigation ---------- */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding-block:18px;background:color-mix(in srgb,var(--bg) 72%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:padding .3s,background .3s,box-shadow .3s,border-color .3s}
+.nav.scrolled{padding-block:9px;background:color-mix(in srgb,var(--bg) 94%,transparent);border-color:var(--line);box-shadow:0 8px 24px -16px rgba(23,57,44,.45)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:600 1rem 'Sora',sans-serif;letter-spacing:-.01em}
+.brand svg{width:28px;height:28px;color:var(--accent)}
+.menu{display:flex;align-items:center;gap:2px}
+.menu a:not(.btn){position:relative;padding:8px 10px;font-size:.88rem;font-weight:500;text-decoration:none;color:var(--ink-soft);border-radius:8px;transition:color .2s}
+.menu a:not(.btn):hover,.menu a.active{color:var(--ink)}
+.menu a.active::after{content:"";position:absolute;left:10px;right:10px;bottom:2px;height:2px;border-radius:2px;background:var(--gold)}
+.menu .btn{margin-left:10px}
+.burger{display:none;width:44px;height:44px;border:1.5px solid var(--line);border-radius:12px;background:var(--surface);cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.burger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s,opacity .25s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media (max-width:1100px){
+  .burger{display:flex}
+  .menu{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:2px;padding:12px 20px 22px;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .menu.open{display:flex}
+  .menu a:not(.btn){padding:12px 10px;font-size:1rem}
+  .menu a.active::after{left:10px;right:auto;width:22px}
+  .menu .btn{margin:10px 0 0}
+}
+
+/* ---------- sections ---------- */
+.sec{padding-block:clamp(64px,9vw,112px)}
+.sec.alt{background:var(--bg-alt)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:16px;font:500 .74rem/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.eyebrow::before{content:"";width:22px;height:2px;border-radius:2px;background:var(--gold)}
+h2{font-size:clamp(1.7rem,3.5vw,2.7rem);line-height:1.14;max-width:22em}
+.sec-head{display:flex;flex-direction:column;gap:12px;margin-bottom:clamp(32px,5vw,56px)}
+.sec-sub{color:var(--ink-soft);max-width:56ch}
+
+/* scroll-driven entrance (resting state is always visible) */
+@keyframes rise{from{transform:translateY(16px)}to{transform:none}}
+@supports (animation-timeline:view()){
+  .rv{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 45%}
+}
+
+/* ---------- hero ---------- */
+.hero{padding-block:clamp(28px,5vw,64px) clamp(56px,8vw,96px);background:radial-gradient(60% 70% at 85% 10%,color-mix(in srgb,var(--gold) 16%,transparent),transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:24px;min-width:0}
+.status{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font:500 .8rem/1.2 'IBM Plex Mono',monospace;letter-spacing:.02em;color:var(--ink)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--moss);box-shadow:0 0 0 0 color-mix(in srgb,var(--moss) 60%,transparent);animation:ping 2.2s infinite;flex:none}
+@keyframes ping{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(2.2rem,5vw,3.9rem);line-height:1.07;letter-spacing:-.03em;font-weight:600}
+h1 em{font-style:normal;color:var(--teal)}
+.lead{font-size:clamp(1.02rem,1.5vw,1.16rem);color:var(--ink-soft);max-width:54ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+
+.scene-wrap{min-width:0;display:flex;justify-content:center}
+.scene{--mx:0;--my:0;--wind:0;position:relative;width:100%;max-width:470px;aspect-ratio:600/620;border-radius:999px 999px 28px 28px;overflow:hidden;border:2px solid color-mix(in srgb,var(--ink) 80%,transparent);box-shadow:var(--shadow);background:var(--sc-sky-bot)}
+.scene svg,.scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scene canvas{pointer-events:none}
+.layer{transform:translate(calc(var(--mx)*var(--d)*1px),calc(var(--my)*var(--d)*.55px))}
+.wind{transform:rotate(calc(var(--wind)*2.4deg))}
+.sway{animation:sway 7s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+.spin{animation:spin 80s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.flow{fill:none;stroke:var(--cyan);stroke-width:1.6;stroke-linecap:round;stroke-dasharray:2 8;opacity:.85;animation:dash 2.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-20}}
+.nd .halo{fill:var(--cyan);opacity:.2;transform-box:fill-box;transform-origin:center;transition:transform .35s,opacity .35s}
+.nd .core{fill:var(--cyan);stroke:var(--sc-bldg);stroke-width:2}
+.nd.on .halo{transform:scale(2.1);opacity:.45}
+.lit{fill:var(--sc-lit);animation:twinkle 5s ease-in-out infinite}
+@keyframes twinkle{50%{opacity:.45}}
+
+/* ---------- concept + scenes ---------- */
+.sec.alt{position:relative}
+.edge{position:absolute;left:0;right:0;top:-33px;width:100%;height:34px;pointer-events:none}
+.pillars{display:flex;align-items:stretch;justify-content:center;gap:12px;margin-bottom:clamp(32px,5vw,56px)}
+.pillar{flex:1;display:flex;flex-direction:column;gap:10px;padding:22px;border:1px solid var(--line);border-radius:22px;background:var(--surface);min-width:0}
+.pillar svg{width:34px;height:34px;fill:none;stroke:var(--teal);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pillar h3{font-size:1.1rem}
+.pillar p{color:var(--ink-soft);font-size:.93rem}
+.plus{align-self:center;font:500 1.6rem 'Sora',sans-serif;color:var(--gold)}
+@media (max-width:760px){.pillars{flex-direction:column}.plus{display:none}}
+.scenes{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.scn{margin:0;display:flex;flex-direction:column;min-width:0;border:1px solid var(--line);border-radius:22px;background:var(--surface);overflow:hidden;transition:transform .35s,box-shadow .35s}
+.scn:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.pic{aspect-ratio:16/10;overflow:hidden;background:var(--bg-alt)}
+.pic svg{display:block;width:100%;height:100%;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.scn:hover .pic svg{transform:scale(1.06)}
+.scn figcaption{display:flex;flex-direction:column;gap:6px;padding:18px 20px 22px}
+.scn h3{font-size:1.08rem}
+.scn p{color:var(--ink-soft);font-size:.92rem}
+.scenes-bar{display:flex;justify-content:center;margin-top:28px}
+@media (max-width:980px){.scenes{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.scenes{grid-template-columns:1fr}}
+.skyline{height:90px;background:var(--bg-alt);overflow:hidden}
+.skyline svg{display:block;width:100%;height:100%}
+.cloud{animation:cloud 40s ease-in-out infinite alternate}
+@keyframes cloud{from{transform:translateX(-34px)}to{transform:translateX(44px)}}
+.bob{animation:bob 4.5s ease-in-out infinite alternate}
+@keyframes bob{from{transform:translateY(-4px)}to{transform:translateY(5px)}}
+.fly{animation:fly 26s linear infinite}
+@keyframes fly{from{transform:translateX(-80px)}to{transform:translateX(560px)}}
+.rotor{transform-box:fill-box;transform-origin:center;animation:rotor .2s linear infinite alternate}
+@keyframes rotor{from{transform:scaleX(1)}to{transform:scaleX(.35)}}
+.rot{transform-box:fill-box;transform-origin:center;animation:spin 14s linear infinite}
+.sw{transform-box:fill-box;transform-origin:bottom center;animation:sway 5s ease-in-out infinite alternate}
+.swt{transform-box:view-box;animation:sway 5s ease-in-out infinite alternate}
+.tw{animation:twinkle 3s ease-in-out infinite}
+.glowp{animation:glowp 3s ease-in-out infinite alternate}
+@keyframes glowp{from{opacity:.55}to{opacity:1}}
+.flo{stroke-dasharray:3 8;animation:dash 2s linear infinite}
+.ripple{transform-box:fill-box;transform-origin:center;animation:ripple 4s ease-out infinite}
+@keyframes ripple{from{transform:scale(.4);opacity:.9}to{transform:scale(2.6);opacity:0}}
+.glint{animation:glint 7s ease-in-out infinite}
+@keyframes glint{0%{transform:translateX(0)}70%,100%{transform:translateX(620px)}}
+.wave{transform-box:fill-box;transform-origin:left center;animation:wave 1.6s ease-in-out infinite alternate}
+@keyframes wave{from{transform:rotate(-25deg)}to{transform:rotate(18deg)}}
+.idle *,.calm *{animation-play-state:paused!important}
+
+/* ---------- about ---------- */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,80px);align-items:center}
+.portrait{position:relative;width:100%;max-width:400px;margin-inline:auto;aspect-ratio:4/5;border-radius:999px 999px 28px 28px;border:2px dashed var(--sage);background:var(--surface);display:grid;place-items:center;overflow:hidden}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait-hint{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--ink-soft);text-align:center;padding:24px;font-size:.88rem}
+.portrait-hint svg{width:88px;height:88px;color:var(--sage)}
+.about-copy{display:flex;flex-direction:column;gap:18px;min-width:0}
+.about-copy p{color:var(--ink-soft);max-width:60ch}
+.about-copy p:first-of-type{color:var(--ink)}
+
+/* ---------- stats ---------- */
+.stats{padding-block:clamp(36px,5vw,64px)}
+.band{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:28px;background:var(--surface);overflow:hidden}
+.stat{display:flex;flex-direction:column;align-items:center;gap:12px;padding:28px 16px;text-align:center;min-width:0}
+.stat+.stat{border-left:1px solid var(--line)}
+.stat p{font:500 .74rem/1.3 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.ring{position:relative;width:120px;height:120px}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:7;stroke-linecap:round}
+.ring .tr{stroke:var(--line)}
+.ring .pg{transition:stroke-dashoffset 1.5s cubic-bezier(.2,.7,.2,1)}
+.num{font:600 1.9rem/1 'Sora',sans-serif;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.ring .num{position:absolute;inset:0;display:grid;place-items:center}
+.big{height:120px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.big .num small{font-size:1.1rem;font-weight:500;color:var(--teal)}
+.big .num.sm{font-size:1.45rem}
+@media (max-width:760px){
+  .band{grid-template-columns:1fr 1fr}
+  .stat:nth-child(3){border-left:0}
+  .stat:nth-child(n+3){border-top:1px solid var(--line)}
+}
+
+/* ---------- skills garden ---------- */
+.garden{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.links{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:visible}
+.links path{fill:none;stroke:var(--cyan);stroke-width:1.4;stroke-dasharray:2 7;stroke-linecap:round;opacity:.3;transition:opacity .3s,stroke-width .3s}
+.links path.hot{opacity:1;stroke-width:2.4;stroke-dasharray:none;filter:drop-shadow(0 0 4px var(--cyan))}
+.plot{--c:var(--moss);display:flex;flex-direction:column;gap:18px;padding:24px;border:1px solid var(--line);border-radius:24px;background:var(--surface);min-width:0}
+.plot:nth-child(2){--c:var(--teal)}
+.plot:nth-child(3){--c:var(--gold)}
+.plot:nth-child(4){--c:var(--cyan)}
+.plot h3{display:flex;align-items:center;gap:12px;font-size:1.1rem}
+.plot h3 svg{width:26px;height:26px;color:var(--c);flex:none}
+.nodes{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0}
+.node{position:relative;z-index:2;display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;border:1.5px solid color-mix(in srgb,var(--c) 55%,var(--line));background:var(--bg);font-size:.92rem;font-weight:500;cursor:default;transition:transform .25s,box-shadow .25s,opacity .25s,border-color .25s}
+.node::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+.node:hover,.node:focus-visible,.node.hot{transform:translateY(-2px);border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 22%,transparent),0 6px 18px -6px var(--c)}
+.node.rel{border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 16%,transparent)}
+.garden.dim .node:not(.hot):not(.rel){opacity:.5}
+.node.ph{border-style:dashed;color:var(--ink-soft);background:transparent}
+.node.ph::before{background:transparent;border:1.5px dashed var(--c)}
+.tip{position:absolute;z-index:5;display:none;max-width:230px;padding:8px 12px;border-radius:10px;background:var(--ink);color:var(--bg);font-size:.8rem;line-height:1.4;pointer-events:none;transform:translate(-50%,-100%)}
+@media (max-width:820px){.garden{grid-template-columns:1fr}}
+
+/* ---------- projects ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{position:relative;display:flex;flex-direction:column;min-width:0;border:1px solid var(--line);border-radius:24px;background:var(--surface);overflow:hidden;transition:transform .35s,box-shadow .35s,border-color .35s}
+.card:hover,.card:focus-within{transform:translateY(-6px);border-color:var(--cyan);box-shadow:var(--shadow),0 0 0 3px color-mix(in srgb,var(--cyan) 18%,transparent)}
+.art{position:relative;aspect-ratio:5/3;overflow:hidden;background:color-mix(in srgb,var(--sage) 28%,var(--surface))}
+.art svg,.art img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.card:hover .art svg,.card:hover .art img{transform:scale(1.07)}
+.art svg.net{position:absolute;inset:0}
+.art .ln{fill:none;stroke:#fff;stroke-width:1.4;stroke-dasharray:3 6;opacity:.4;transition:stroke .3s,opacity .3s}
+.art .pt{fill:#fff;opacity:.6;transition:fill .3s,opacity .3s}
+.card:hover .ln{stroke:#FFF3A6;stroke-width:2;opacity:1;filter:drop-shadow(0 0 3px rgba(10,30,20,.7));animation:dash 1.4s linear infinite}
+.card:hover .pt{fill:#FFF3A6;opacity:1;filter:drop-shadow(0 0 4px rgba(10,30,20,.7))}
+.sprig{position:absolute;bottom:0;width:20%;max-width:90px;color:var(--moss);opacity:0;transform:scale(.4);transform-origin:bottom center;transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.sprig.l{left:4%}.sprig.r{right:4%;transform:scale(.4) scaleX(-1)}
+.card:hover .sprig,.card:focus-within .sprig{opacity:1;transform:scale(1)}
+.card:hover .sprig.r,.card:focus-within .sprig.r{transform:scale(1) scaleX(-1)}
+.art-note{position:absolute;right:12px;top:10px;padding:5px 9px;border-radius:999px;background:rgba(10,30,20,.45);font:500 .64rem/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.card-body{display:flex;flex-direction:column;gap:12px;padding:22px;flex:1}
+.card-no{font:500 .72rem/1 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.card h3{font-size:1.25rem}
+.card-body p{color:var(--ink-soft);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
+.tag{padding:4px 11px;border-radius:999px;background:var(--bg-alt);border:1px solid var(--line);font:500 .72rem/1.4 'IBM Plex Mono',monospace;color:var(--ink-soft)}
+.card-actions{display:flex;gap:10px;flex-wrap:wrap;padding-top:6px}
+@media (max-width:980px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.cards{grid-template-columns:1fr}}
+
+/* ---------- experience vine ---------- */
+.vine{--p:0;position:relative;list-style:none;margin:0;padding:0 0 0 64px;display:flex;flex-direction:column;gap:36px;max-width:860px}
+.vine::before{content:"";position:absolute;left:21px;top:8px;bottom:8px;width:3px;border-radius:3px;background:var(--line)}
+.vine-fill{position:absolute;left:21px;top:8px;width:3px;height:calc((100% - 16px)*var(--p));border-radius:3px;background:linear-gradient(var(--gold),var(--cyan));box-shadow:0 0 10px color-mix(in srgb,var(--cyan) 60%,transparent)}
+.ex{position:relative}
+.ex-node{position:absolute;left:-64px;top:20px;width:46px;height:46px;border-radius:50%;background:var(--surface);border:2px solid var(--accent);display:grid;place-items:center}
+.ex-node::after{content:"";width:14px;height:14px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 color-mix(in srgb,var(--gold) 60%,transparent);animation:ping 2.2s infinite}
+.ex-node::before{content:"";position:absolute;right:-16px;top:-8px;width:20px;height:12px;border-radius:0 100% 0 100%;background:var(--moss);transform:rotate(-30deg)}
+.ex-card{display:flex;flex-direction:column;gap:18px;padding:clamp(20px,3vw,32px);border:1px solid var(--line);border-radius:24px;background:var(--surface);box-shadow:var(--shadow)}
+.ex-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px}
+.ex-card h3{font-size:1.5rem}
+.role{color:var(--ink-soft);font-weight:500}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:color-mix(in srgb,var(--moss) 18%,transparent);font:500 .74rem/1.3 'IBM Plex Mono',monospace;letter-spacing:.04em}
+.meta{font:500 .8rem/1.4 'IBM Plex Mono',monospace;color:var(--ink-soft)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tab{padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:transparent;font-size:.86rem;font-weight:500;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.tab:hover{border-color:var(--teal)}
+.tab[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.panel{min-height:96px;padding:18px 20px;border:1.5px dashed var(--sage);border-radius:16px;color:var(--ink-soft)}
+.panel b{display:block;margin-bottom:6px;color:var(--ink);font-family:'Sora',sans-serif;font-weight:600;font-size:.95rem}
+.ex.seed .ex-node{border-style:dashed;border-color:var(--sage)}
+.ex.seed .ex-node::after{background:var(--sage);animation:none}
+.ex.seed .ex-node::before{background:var(--sage)}
+.seed-text{padding:18px 0 0;color:var(--ink-soft);font-size:.95rem}
+
+/* ---------- education ---------- */
+.edu{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,56px);padding:clamp(24px,4vw,44px);border:1px solid var(--line);border-radius:28px;background:var(--surface)}
+.edu-info{display:flex;flex-direction:column;gap:14px;min-width:0}
+.edu-info h3{font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.2}
+.edu-info .branch{font-weight:600;color:var(--teal)}
+.facts{display:flex;flex-direction:column;gap:8px;margin:8px 0 0;padding:0;list-style:none;color:var(--ink-soft);font-size:.95rem}
+.facts li{display:flex;gap:10px;flex-wrap:wrap}
+.facts .k{font:500 .72rem/1.9 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;min-width:92px;color:var(--ink)}
+.sems{display:flex;flex-direction:column;gap:26px;justify-content:center;min-width:0}
+.sem-row{display:flex;flex-direction:column;gap:8px}
+.sem-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.sem-top b{font:600 1rem 'Sora',sans-serif}
+.sem-top span{font:500 .85rem 'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;color:var(--teal)}
+.stem{position:relative;height:14px;border-radius:14px;background:var(--bg-alt);border:1px solid var(--line)}
+.stem i{position:absolute;left:0;top:-1px;bottom:-1px;border-radius:14px;background:linear-gradient(90deg,var(--moss),var(--teal))}
+.stem i::after{content:"";position:absolute;right:-6px;top:-9px;width:22px;height:14px;border-radius:0 100% 0 100%;background:var(--moss);transform:rotate(-35deg)}
+.scale{display:flex;justify-content:space-between;font:500 .68rem/1 'IBM Plex Mono',monospace;color:var(--ink-soft)}
+@media (max-width:820px){.edu{grid-template-columns:1fr}}
+
+/* ---------- courses ---------- */
+.courses{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.course{display:flex;flex-direction:column;gap:10px;padding:22px;min-width:0;border:1px solid var(--line);border-radius:20px;background:var(--surface);transition:transform .3s,border-color .3s}
+.course:hover{transform:translateY(-4px);border-color:var(--teal)}
+.course-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.course-top svg{width:28px;height:28px;color:var(--moss)}
+.course h3{font-size:1.1rem}
+.course p{color:var(--ink-soft);font-size:.92rem}
+.course .btn{align-self:flex-start;margin-top:auto}
+@media (max-width:980px){.courses{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.courses{grid-template-columns:1fr}}
+
+/* ---------- beyond code ---------- */
+.hobbies{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:20px}
+.hobby{display:flex;flex-direction:column;gap:12px;padding:24px;border:1px solid var(--line);border-radius:22px;background:var(--surface);transition:transform .3s,border-color .3s}
+.hobby:hover{transform:translateY(-4px);border-color:var(--gold)}
+.hobby svg{width:36px;height:36px;fill:none;stroke:var(--teal);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hobby h3{font-size:1.15rem}
+.hobby p{color:var(--ink-soft);font-size:.94rem}
+.piano-box{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,4vw,48px);align-items:center;padding:clamp(22px,3vw,36px);border:1px solid var(--line);border-radius:26px;background:var(--surface)}
+.piano-box h3{font-size:1.35rem;margin-bottom:8px}
+.piano-box p{color:var(--ink-soft);font-size:.95rem}
+.piano{position:relative;display:flex;height:170px;border:2px solid var(--ink);border-radius:6px 6px 14px 14px;overflow:hidden;background:var(--ink);gap:2px;padding:0 2px 2px;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+.wk{flex:1;min-width:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:8px;border:0;border-radius:0 0 8px 8px;background:var(--surface);color:var(--ink-soft);font:500 .7rem 'IBM Plex Mono',monospace;cursor:pointer;transition:background .12s}
+.wk.down{background:color-mix(in srgb,var(--gold) 55%,var(--surface))}
+.bk{position:absolute;top:0;width:7%;height:62%;z-index:2;border:0;border-radius:0 0 6px 6px;background:var(--ink);box-shadow:0 0 0 1.5px var(--surface);cursor:pointer;transition:background .12s}
+.bk.down{background:var(--teal)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:20px}
+.shot{display:grid;place-items:center;aspect-ratio:4/3;border:2px dashed var(--sage);border-radius:20px;color:var(--ink-soft);font:500 .74rem/1.4 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:16px}
+.shot img{width:100%;height:100%;object-fit:cover;border-radius:18px}
+@media (max-width:900px){.piano-box{grid-template-columns:1fr}}
+@media (max-width:760px){.hobbies,.gallery{grid-template-columns:1fr}.gallery .shot{aspect-ratio:16/9}}
+
+/* ---------- contact ---------- */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.contact-list{display:flex;flex-direction:column;gap:14px;min-width:0}
+.c-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 20px;border:1px solid var(--line);border-radius:18px;background:var(--surface);text-decoration:none;min-width:0;transition:border-color .25s,transform .25s}
+a.c-row:hover{border-color:var(--teal);transform:translateX(4px)}
+.c-row div{min-width:0}
+.c-row small{display:block;font:500 .7rem/1.4 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.c-row span.v{display:block;font-weight:500;overflow-wrap:anywhere}
+.copy{flex:none;cursor:pointer}
+footer{padding-block:32px;color:var(--ink-soft);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:90;max-width:calc(100vw - 32px);padding:11px 20px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:.88rem;transform:translate(-50%,24px);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (max-width:820px){
+  .about,.contact,.hero-grid{grid-template-columns:1fr}
+  .scene{max-width:400px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .rv{animation:none!important}
+}
+
+/* =====================================================================
+   INTERACTIVE GARDEN HUB (added): hotspots, labels, map, journey, extras
+   ===================================================================== */
+.scene-wrap{flex-direction:column;align-items:center;gap:18px}
+
+/* hotspots inside the hero SVG */
+.scene .hs{cursor:pointer;outline:none}
+.hs-move{transform-box:fill-box;transform-origin:50% 100%;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.hs-halo{fill:var(--gold);fill-opacity:0;stroke:var(--gold);stroke-width:2.5;stroke-opacity:0;stroke-linejoin:round;pointer-events:all;transition:fill-opacity .3s,stroke-opacity .3s}
+.hs:hover .hs-halo,.hs.on .hs-halo,.hs.peek .hs-halo,.hs:focus-visible .hs-halo{fill-opacity:.2;stroke-opacity:.95;filter:url(#hsGlow)}
+.hs:focus-visible .hs-halo{stroke:var(--cyan);stroke-dasharray:6 5}
+.hs:hover .hs-move,.hs.on .hs-move,.hs.peek .hs-move,.hs:focus-visible .hs-move{transform:scale(1.035)}
+.hs.go .hs-move{animation:hop .55s ease-out}
+@keyframes hop{40%{transform:translateY(-7px) scale(1.05)}}
+.hs-pin{pointer-events:none}
+.pin-d{fill:var(--gold);stroke:var(--surface);stroke-width:1.6;transition:fill .3s}
+.pin-r{fill:none;stroke:var(--gold);stroke-width:1.6;transform-box:fill-box;transform-origin:center;animation:ripple 3.6s ease-out infinite}
+.hs.seen .pin-d{fill:var(--moss)}
+.hs.seen .pin-r{animation:none;opacity:0}
+
+/* floating label */
+.hs-tip{position:absolute;z-index:6;left:0;top:0;display:flex;flex-direction:column;gap:1px;padding:7px 14px 8px;border-radius:14px;background:var(--ink);color:var(--bg);white-space:nowrap;pointer-events:none;opacity:0;transform:translate(-50%,-100%) translateY(6px);transition:opacity .2s,transform .25s}
+.hs-tip.show{opacity:1;transform:translate(-50%,-100%)}
+.hs-tip.below{transform:translate(-50%,0) translateY(-6px)}
+.hs-tip.below.show{transform:translate(-50%,0)}
+.hs-tip b{font:600 .86rem/1.2 'Sora',sans-serif}
+.hs-tip span{font-size:.72rem;opacity:.82}
+.hs-tip::after{content:"";position:absolute;left:var(--ax,50%);bottom:-5px;width:10px;height:10px;background:inherit;border-radius:2px;transform:translateX(-50%) rotate(45deg)}
+.hs-tip.below::after{bottom:auto;top:-5px}
+
+/* "Explore my garden" cue */
+.cue{display:inline-flex;align-items:center;gap:12px;padding:9px 18px 9px 10px;border:1.5px dashed var(--sage);border-radius:999px;background:transparent;cursor:pointer;text-align:left;transition:background .25s,border-color .25s,transform .25s}
+.cue:hover{background:var(--surface);border-color:var(--teal);transform:translateY(-2px)}
+.cue-ic{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:color-mix(in srgb,var(--gold) 24%,transparent)}
+.cue-ic svg{width:18px;height:18px;animation:nudge 1.8s ease-in-out infinite}
+@keyframes nudge{50%{transform:translate(4px,4px)}}
+.cue b{display:block;font:600 .95rem/1.25 'Sora',sans-serif}
+.cue small{display:block;font-size:.8rem;color:var(--ink-soft)}
+.cue-go{flex:none;width:18px;height:18px;color:var(--teal);animation:nudgeX 1.8s ease-in-out infinite}
+@keyframes nudgeX{50%{transform:translateX(5px)}}
+@keyframes nudgeY{50%{transform:rotate(90deg) translateX(5px)}}
+@media (max-width:820px){.cue-go{transform:rotate(90deg);animation-name:nudgeY}}
+
+/* garden map (touch-friendly list that mirrors the hotspots) */
+.map{width:100%;max-width:470px}
+.map-head{display:flex;justify-content:space-between;gap:10px;margin:0 6px 10px;font:500 .7rem/1 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.map-list{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0;padding:0;list-style:none}
+.map-chip{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border:1.5px solid var(--line);border-radius:999px;background:var(--surface);font:500 .82rem/1 'Figtree',sans-serif;cursor:pointer;transition:transform .25s,border-color .25s,box-shadow .25s}
+.map-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);transition:background .3s}
+.map-chip.seen::before{background:var(--moss)}
+.map-chip:hover,.map-chip.on{transform:translateY(-2px);border-color:var(--teal);box-shadow:0 6px 16px -8px var(--teal)}
+@media (pointer:coarse){.map-chip{min-height:44px;padding-inline:16px}}
+
+/* back to the garden */
+.to-garden{position:fixed;right:18px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:60;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1.5px solid var(--line);border-radius:999px;background:var(--surface);box-shadow:var(--shadow);font:600 .82rem 'Sora',sans-serif;cursor:pointer;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .3s,transform .3s,border-color .25s}
+.to-garden.show{opacity:1;transform:none;pointer-events:auto}
+.to-garden:hover{border-color:var(--teal)}
+.to-garden svg{width:18px;height:18px;color:var(--moss)}
+
+/* arrival highlight after travelling to a section */
+.arrive{animation:bloom 2.2s ease-out}
+@keyframes bloom{0%{box-shadow:inset 0 0 0 0 transparent}22%{box-shadow:inset 0 0 140px -50px color-mix(in srgb,var(--gold) 38%,transparent)}100%{box-shadow:inset 0 0 0 0 transparent}}
+.arrive .eyebrow::before{animation:bar 2.2s ease-in-out}
+@keyframes bar{30%,60%{width:70px}}
+.piano-box.arrive{animation:pulsebox 2s ease-out}
+@keyframes pulsebox{0%{box-shadow:0 0 0 0 transparent}25%{box-shadow:0 0 0 8px color-mix(in srgb,var(--gold) 35%,transparent)}100%{box-shadow:0 0 0 0 transparent}}
+
+/* soft pointer glow on cards */
+.glow{position:relative}
+.glow::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(240px circle at var(--gx,50%) var(--gy,50%),color-mix(in srgb,var(--gold) 16%,transparent),transparent 62%)}
+.glow:hover::after{opacity:1}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-10deg)}75%{transform:rotate(10deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}}
+
+/* skills: pinned detail */
+.node:not(.ph){cursor:pointer}
+.node[aria-pressed="true"]{border-color:var(--c);box-shadow:0 0 0 4px color-mix(in srgb,var(--c) 26%,transparent)}
+.skill-detail{display:grid;gap:12px;margin-top:20px;padding:20px 24px;border:1.5px solid var(--teal);border-radius:22px;background:var(--surface);box-shadow:var(--shadow);animation:fadeUp .35s ease-out}
+.skill-detail p{color:var(--ink-soft);max-width:62ch}
+.sd-head{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.sd-head h3{font-size:1.25rem}
+.sd-cat{font:500 .7rem/1 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.sd-x{margin-left:auto;width:36px;height:36px;border:1.5px solid var(--line);border-radius:50%;background:transparent;font-size:1.1rem;line-height:1;cursor:pointer}
+.sd-x:hover{border-color:var(--teal)}
+.sd-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;color:var(--ink-soft);font-size:.92rem}
+.sd-k{min-width:104px;font:500 .7rem/1.4 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.sd-chip{padding:6px 13px;border:1.5px solid var(--line);border-radius:999px;background:var(--bg);font-size:.85rem;font-weight:500;cursor:pointer;transition:border-color .2s,transform .2s}
+.sd-chip:hover{border-color:var(--teal);transform:translateY(-1px)}
+
+/* experience vine */
+.ex-node{transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.ex-node::before{transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.ex:hover .ex-node{transform:scale(1.14)}
+.ex:hover .ex-node::before{transform:rotate(-8deg) scale(1.5)}
+.ex-card{transition:transform .35s,border-color .3s}
+.ex:hover .ex-card{transform:translateY(-3px);border-color:var(--teal)}
+.vine-fill::after{content:"";position:absolute;left:50%;bottom:-6px;width:13px;height:13px;border-radius:50%;background:var(--gold);transform:translateX(-50%);box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 30%,transparent),0 0 14px var(--cyan)}
+.panel.swap{animation:fadeUp .35s ease-out}
+
+/* education: stems grow, roots draw in */
+.edu{position:relative;overflow:hidden}
+.edu>*{position:relative;z-index:1}
+.edu>.roots{position:absolute;left:0;right:0;bottom:0;width:100%;height:46%;z-index:0;pointer-events:none;color:var(--moss);opacity:.3}
+.roots path{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.6s ease-out}
+.edu.grown .roots path{stroke-dashoffset:0}
+.stem i{width:var(--w,0%);transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
+.edu.sprout .stem i{width:0}
+.stem i::after{transition:transform .4s}
+.sem-row:hover .stem i::after{transform:rotate(-12deg) scale(1.35)}
+
+/* courses + beyond code */
+.course:hover .course-top svg{animation:wiggle .7s ease-in-out}
+.hobby:hover svg{animation:wiggle .7s ease-in-out}
+.shot{transition:border-color .3s,transform .3s}
+.shot:hover{border-color:var(--teal);transform:translateY(-3px)}
+
+/* piano */
+.piano-wrap{position:relative;min-width:0}
+.piano{touch-action:pan-y}
+.piano-box .piano-note{margin-top:14px;min-height:1.4em;font:500 .82rem/1.4 'IBM Plex Mono',monospace;color:var(--teal)}
+.petals{position:absolute;inset:0;pointer-events:none}
+.petal{position:absolute;width:14px;height:9px;border-radius:0 100% 0 100%;opacity:0;animation:petal 1.5s ease-out forwards}
+@keyframes petal{0%{opacity:.95;transform:translate(0,0) rotate(-30deg) scale(.6)}100%{opacity:0;transform:translate(var(--dx,0px),-90px) rotate(50deg) scale(1.1)}}
+
+/* =====================================================================
+   REAL CONTENT: photos, gallery, lightbox
+   ===================================================================== */
+.portrait.has-photo{border-style:solid;border-color:var(--sage)}
+.portrait img{object-position:50% 28%}
+.art img{object-position:left top}
+
+/* gallery: equal-height row, each frame keeps its photo's own proportions */
+.gallery{display:flex;align-items:stretch;gap:20px}
+button.shot,.shot.has-img{position:relative;display:block;flex:var(--r,1) 1 0;min-width:0;aspect-ratio:var(--r,1);padding:0;overflow:hidden;border:2px solid var(--sage);border-radius:20px;background:var(--surface);cursor:zoom-in;font:inherit;color:inherit}
+.shot.has-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.shot.has-img:hover img,.shot.has-img:focus-visible img{transform:scale(1.05)}
+.shot-cap{position:absolute;left:12px;bottom:12px;padding:5px 11px;border-radius:999px;background:rgba(10,30,20,.62);font:500 .68rem/1 'IBM Plex Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:#fff;opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.shot.has-img:hover .shot-cap,.shot.has-img:focus-visible .shot-cap{opacity:1;transform:none}
+@media (hover:none){.shot-cap{opacity:1;transform:none}}
+@media (max-width:760px){
+  .gallery{flex-direction:column}
+  .gallery .shot.has-img{flex:none;width:100%;max-width:420px;margin-inline:auto;aspect-ratio:var(--r,1)}
+}
+.lightbox{padding:0;border:0;background:transparent;overflow:visible;max-width:94vw;max-height:94vh}
+.lightbox::backdrop{background:rgba(10,24,17,.82);backdrop-filter:blur(3px)}
+.lightbox img{display:block;max-width:92vw;max-height:86vh;border-radius:18px;box-shadow:0 24px 60px -20px rgba(0,0,0,.7)}
+.lb-x{position:absolute;right:-6px;top:-46px;width:40px;height:40px;border:1.5px solid rgba(255,255,255,.7);border-radius:50%;background:rgba(10,24,17,.5);color:#fff;font-size:1.4rem;line-height:1;cursor:pointer}
+.lb-x:hover{background:rgba(10,24,17,.8)}
+</style>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#home" aria-label="Back to top">
+      <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 24C4 12 12 4 24 4c0 12-8 20-20 20z"/><path d="M4 24L16 12"/><circle cx="16" cy="12" r="2.2" fill="currentColor"/></svg>
+      <span data-name>Your Name</span>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <nav class="menu" id="menu" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#courses">Courses</a>
+      <a href="#beyond">Beyond Code</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary btn-sm" id="resumeBtn" href="#">View Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow" style="margin:0">Where Technology Meets Nature</p>
+      <p class="status"><span class="dot"></span>Currently Interning at FLYRANK AI</p>
+      <h1>Building Intelligent Technology, Inspired by <em>Nature.</em></h1>
+      <p class="lead">I'm a 2nd-year Computer Science &amp; Engineering student specializing in Artificial Intelligence &amp; Machine Learning, exploring how technology can solve real-world problems while creating a better future.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#projects">Explore My Work</a>
+        <a class="btn btn-ghost" href="#contact">Let's Connect</a>
+      </div>
+      <button class="cue" type="button" id="cue" aria-label="Explore my garden: show me the clickable landmarks">
+        <span class="cue-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 7-6 2-2 6z"/></svg></span>
+        <span><b>Explore my garden</b><small>Click around. Every landmark leads somewhere.</small></span>
+        <svg class="cue-go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+    <div class="scene-wrap">
+      <div class="scene" id="scene">
+        <svg id="sceneSvg" viewBox="0 0 600 620" preserveAspectRatio="xMidYMid slice" role="group" aria-label="Interactive garden map. Each landmark leads to a section of this portfolio.">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--sc-sky-top)"/><stop offset="1" style="stop-color:var(--sc-sky-bot)"/></linearGradient>
+            <pattern id="cells" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M10 0H0V10" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1"/></pattern><filter id="hsGlow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect x="-40" y="-10" width="680" height="660" fill="url(#sky)"/>
+          <g class="layer" style="--d:2"><circle cx="420" cy="170" r="92" fill="var(--gold)" opacity=".16"/><circle cx="420" cy="170" r="52" fill="var(--gold)"/><g id="rays" class="spin" style="transform-origin:420px 170px"></g></g>
+          <g class="layer" style="--d:4">
+            <g class="cloud"><ellipse cx="150" cy="118" rx="46" ry="9" fill="#fff" opacity=".5"/><ellipse cx="500" cy="92" rx="38" ry="7" fill="#fff" opacity=".45"/></g>
+            <g transform="translate(120 196)"><g class="bob"><rect x="-26" y="-12" width="52" height="24" rx="12" fill="#FFF8E8" stroke="#E5D9BC" stroke-width="1.5"/><path d="M-26 0l-10-10v20zM26 0l10-9v18z" fill="#FFF8E8"/><path d="M0 12L-8 70" stroke="var(--sc-leaf-a)" stroke-width="1.4"/></g></g>
+            <g transform="translate(505 238) scale(.7)"><g class="bob" style="animation-delay:-2s"><rect x="-26" y="-12" width="52" height="24" rx="12" fill="#FFF8E8" stroke="#E5D9BC" stroke-width="1.5"/><path d="M-26 0l-10-10v20zM26 0l10-9v18z" fill="#FFF8E8"/><path d="M0 12L6 90" stroke="var(--sc-leaf-a)" stroke-width="1.6"/></g></g>
+          </g>
+          <g class="layer" style="--d:5" fill="var(--sc-far)">
+            <rect x="20" y="330" width="70" height="260" rx="12"/><rect x="98" y="285" width="52" height="300" rx="26"/><rect x="156" y="360" width="90" height="230" rx="14"/>
+            <rect x="440" y="320" width="62" height="270" rx="14"/><rect x="508" y="370" width="70" height="220" rx="35"/><rect x="560" y="300" width="50" height="290" rx="10"/>
+            <g fill="var(--sc-leaf-b)" opacity=".85"><ellipse cx="55" cy="328" rx="28" ry="9"/><circle cx="124" cy="276" r="13"/><ellipse cx="201" cy="358" rx="36" ry="9"/><ellipse cx="471" cy="318" rx="26" ry="8"/><circle cx="543" cy="362" r="10"/></g>
+          <g class="hs" data-hub="education" role="link" tabindex="0" aria-label="Education"><rect class="hs-halo" x="20" y="330" width="70" height="140" rx="12"/><rect class="hs-halo" x="98" y="285" width="52" height="185" rx="26"/><g class="hs-pin" transform="translate(124 256)" aria-hidden="true"><circle class="pin-r" r="6" style="animation-delay:-1.0s"/><circle class="pin-d" r="3.4"/></g></g></g>
+          <g class="layer" style="--d:10">
+            <g class="hs" data-hub="skills" role="link" tabindex="0" aria-label="Skills"><g class="hs-move"><rect x="262" y="250" width="128" height="300" rx="16" fill="var(--sc-bldg)"/>
+            <g id="wins"></g>
+            <ellipse cx="326" cy="248" rx="68" ry="13" fill="var(--sc-leaf-b)"/>
+            <g fill="var(--sc-leaf-a)"><circle cx="296" cy="236" r="15"/><circle cx="326" cy="228" r="19"/><circle cx="356" cy="238" r="14"/></g>
+            <g fill="var(--sc-leaf-b)"><ellipse cx="262" cy="330" rx="30" ry="8"/><ellipse cx="390" cy="390" rx="30" ry="8"/><ellipse cx="262" cy="450" rx="30" ry="8"/></g>
+            <g fill="var(--sc-leaf-a)"><circle cx="262" cy="322" r="9"/><circle cx="390" cy="382" r="9"/><circle cx="262" cy="442" r="9"/></g><rect class="hs-halo" x="262" y="250" width="128" height="300" rx="16"/><ellipse class="hs-halo" cx="326" cy="232" rx="70" ry="26"/></g><g class="hs-pin" transform="translate(326 198)" aria-hidden="true"><circle class="pin-r" r="6" style="animation-delay:-0.4s"/><circle class="pin-d" r="3.4"/></g></g>
+            <g class="hs" data-hub="experience" role="link" tabindex="0" aria-label="Experience"><g class="hs-move"><path d="M215 556C211 500 221 450 215 410" stroke="var(--sc-trunk)" stroke-width="12" stroke-linecap="round" fill="none"/>
+            <circle cx="215" cy="392" r="44" fill="var(--sc-leaf-a)"/><circle cx="185" cy="414" r="30" fill="var(--sc-leaf-b)"/><circle cx="246" cy="414" r="32" fill="var(--sc-leaf-b)"/><circle cx="215" cy="362" r="28" fill="var(--sc-leaf-a)"/><circle class="hs-halo" cx="215" cy="392" r="46"/><circle class="hs-halo" cx="185" cy="414" r="31"/><circle class="hs-halo" cx="246" cy="414" r="33"/><circle class="hs-halo" cx="215" cy="362" r="29"/><rect class="hs-halo" x="208" y="410" width="14" height="146" rx="6"/></g><g class="hs-pin" transform="translate(215 316)" aria-hidden="true"><circle class="pin-r" r="6" style="animation-delay:-1.6s"/><circle class="pin-d" r="3.4"/></g></g>
+          </g>
+          <g class="layer" style="--d:12"><g id="net"></g><g class="hs" data-hub="contact" role="link" tabindex="0" aria-label="Contact"><circle class="hs-halo" cx="471" cy="318" r="22"/><g class="hs-pin" transform="translate(471 318)" aria-hidden="true"><circle class="pin-r" r="6" style="animation-delay:-2.2s"/></g></g></g>
+          <g class="layer" style="--d:18">
+            <path d="M-40 520C100 496 230 540 340 518S520 494 640 522L640 700L-40 700Z" fill="var(--sc-ground)"/>
+            <g class="hs" data-hub="projects" role="link" tabindex="0" aria-label="Projects"><g class="hs-move">
+              <path d="M25 535A70 70 0 0 1 165 535Z" fill="var(--sc-glass)" fill-opacity=".38" stroke="var(--sc-frame)" stroke-width="2"/>
+              <path d="M95 465C70 480 70 515 70 535M95 465C120 480 120 515 120 535M95 465V535M30 520H160" stroke="var(--sc-frame)" stroke-width="1.4" fill="none"/>
+              <path d="M95 535C90 515 100 500 95 480" stroke="var(--sc-leaf-a)" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <g fill="var(--sc-leaf-b)"><ellipse cx="84" cy="508" rx="10" ry="4" transform="rotate(-35 84 508)"/><ellipse cx="107" cy="498" rx="10" ry="4" transform="rotate(35 107 498)"/><ellipse cx="86" cy="490" rx="8" ry="3.4" transform="rotate(-35 86 490)"/></g>
+            <path class="hs-halo" d="M22 538A73 73 0 0 1 168 538Z"/></g><g class="hs-pin" transform="translate(95 452)" aria-hidden="true"><circle class="pin-r" r="6" style="animation-delay:-2.8s"/><circle class="pin-d" r="3.4"/></g></g>
+            <g fill="var(--sc-panel)" stroke="var(--sc-frame)" stroke-width="1.5">
+              <polygon points="400,520 470,520 482,494 412,494"/><polygon points="488,523 558,523 570,497 500,497"/><polygon points="574,527 644,527 656,501 586,501"/>
+            </g>
+            <g fill="url(#cells)"><polygon points="400,520 470,520 482,494 412,494"/><polygon points="488,523 558,523 570,497 500,497"/><polygon points="574,527 644,527 656,501 586,501"/></g>
+            <g stroke="var(--sc-frame)" stroke-width="3" stroke-linecap="round"><path d="M435 520V540M523 523V543M609 527V547"/></g>
+            <g id="plants"><g class="hs" data-hub="about" role="link" tabindex="0" aria-label="About"><g class="hs-move" id="aboutPlants"><ellipse class="hs-halo" cx="282" cy="506" rx="146" ry="54"/></g><g class="hs-pin" transform="translate(300 446)" aria-hidden="true"><circle class="pin-r" r="6" style="animation-delay:-0.9s"/><circle class="pin-d" r="3.4"/></g></g></g>
+            <path d="M-40 552C120 534 280 566 430 546S580 538 640 552L640 700L-40 700Z" fill="var(--sc-near)"/><g id="props"><g class="hs" data-hub="beyond" role="link" tabindex="0" aria-label="Beyond Code"><g class="hs-move"><path d="M80 592L72 614M104 592L112 614M92 592V614" stroke="var(--sc-trunk)" stroke-width="3" stroke-linecap="round" fill="none"/><rect x="70" y="562" width="44" height="34" rx="3" fill="var(--sc-sky-top)" stroke="var(--sc-trunk)" stroke-width="2.5"/><circle cx="102" cy="572" r="4.5" fill="var(--gold)"/><path d="M72 594C80 582 90 584 98 588C104 582 110 584 112 586V594Z" fill="var(--sc-leaf-b)"/><rect class="hs-halo" x="66" y="558" width="52" height="58" rx="8"/></g><g class="hs-pin" transform="translate(92 548)" aria-hidden="true"><circle class="pin-r" r="6" style="animation-delay:-3.2s"/><circle class="pin-d" r="3.4"/></g></g><g class="hs" data-hub="courses" role="link" tabindex="0" aria-label="Courses"><g class="hs-move"><rect x="240" y="598" width="62" height="14" rx="3" fill="var(--gold)"/><rect x="250" y="598" width="3" height="14" fill="var(--sc-near)" opacity=".35"/><rect x="246" y="584" width="54" height="14" rx="3" fill="var(--sc-bldg)"/><rect x="256" y="584" width="3" height="14" fill="var(--sc-near)" opacity=".35"/><rect x="244" y="570" width="50" height="14" rx="3" fill="var(--cyan)"/><rect x="254" y="570" width="3" height="14" fill="var(--sc-near)" opacity=".35"/><path d="M270 570C269 563 272 559 270 554" stroke="var(--sc-leaf-b)" stroke-width="2.4" fill="none" stroke-linecap="round"/><ellipse cx="264" cy="558" rx="6" ry="3" transform="rotate(-30 264 558)" fill="var(--sc-leaf-b)"/><ellipse cx="277" cy="555" rx="6" ry="3" transform="rotate(30 277 555)" fill="var(--sc-leaf-b)"/><rect class="hs-halo" x="236" y="550" width="70" height="64" rx="8"/></g><g class="hs-pin" transform="translate(270 542)" aria-hidden="true"><circle class="pin-r" r="6" style="animation-delay:-3.8s"/><circle class="pin-d" r="3.4"/></g></g><g class="hs" data-hub="piano" role="link" tabindex="0" aria-label="Piano"><g class="hs-move"><rect x="430" y="588" width="100" height="26" rx="4" fill="var(--sc-bldg)" stroke="var(--sc-frame)" stroke-width="2"/><path d="M444.3 588V614M458.6 588V614M472.9 588V614M487.1 588V614M501.4 588V614M515.7 588V614" stroke="var(--sc-frame)" stroke-width="1" opacity=".6"/><g fill="var(--sc-frame)"><rect x="440" y="588" width="9" height="15" rx="1.5"/><rect x="454" y="588" width="9" height="15" rx="1.5"/><rect x="483" y="588" width="9" height="15" rx="1.5"/><rect x="497" y="588" width="9" height="15" rx="1.5"/><rect x="511" y="588" width="9" height="15" rx="1.5"/></g><rect class="hs-halo" x="426" y="582" width="108" height="36" rx="6"/></g><g class="hs-pin" transform="translate(480 576)" aria-hidden="true"><circle class="pin-r" r="6" style="animation-delay:-4.4s"/><circle class="pin-d" r="3.4"/></g></g></g>
+          </g>
+        </svg>
+        <canvas id="motes" aria-hidden="true"></canvas><div class="hs-tip" id="hsTip" aria-hidden="true"></div>
+      </div>
+      <nav class="map" aria-label="Garden map">
+        <p class="map-head"><span>Garden map</span><span id="mapCount">0 / 9 explored</span></p>
+        <ul class="map-list" id="mapList"></ul>
+      </nav>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="sec" id="concept" style="padding-top:clamp(16px,3vw,32px)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">The Concept</p>
+      <h2>A Future Where Technology and Nature Grow Together.</h2>
+      <p class="sec-sub">I imagine a world where AI, clean energy, plants and people share one ecosystem. This portfolio is built the same way: skills grow as a garden, experience climbs a vine and every project starts as a seed.</p>
+    </div>
+    <div class="pillars rv">
+      <div class="pillar">
+        <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M5 29C5 15 15 5 29 5c0 14-10 24-24 24z"/><path d="M5 29L19 15"/></svg>
+        <h3>Nature</h3><p>Sunlight, water and plants set the pace.</p>
+      </div>
+      <span class="plus" aria-hidden="true">+</span>
+      <div class="pillar">
+        <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="4"/><circle cx="6" cy="8" r="2.5"/><circle cx="28" cy="9" r="2.5"/><circle cx="25" cy="28" r="2.5"/><path d="M13.6 14.6L8 9.6M20.8 15L26 10.5M19 20.8l4.6 5"/></svg>
+        <h3>Intelligent Technology</h3><p>AI and clean energy that work with living systems.</p>
+      </div>
+      <span class="plus" aria-hidden="true">+</span>
+      <div class="pillar">
+        <svg viewBox="0 0 34 34" aria-hidden="true"><path d="M6 28l1.5-6L24 5.5a3 3 0 0 1 4.5 4.5L12 26.5 6 28z"/><path d="M20.5 9l4.5 4.5"/></svg>
+        <h3>Human Creativity</h3><p>Curiosity and imagination at the centre.</p>
+      </div>
+    </div>
+    <div class="scenes" id="scenes"></div>
+    <div class="scenes-bar"><button class="btn btn-ghost btn-sm" id="pauseBtn" type="button" aria-pressed="false">Pause animations</button></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="sec alt" id="about">
+  <div class="wrap about">
+    <div class="rv">
+            <figure class="portrait has-photo" style="margin:0">
+        <img src="assets/profile.jpg" width="900" height="1200" alt="Portrait of Jana Vanshika smiling, wearing glasses and a green sweater" fetchpriority="low">
+      </figure>
+    </div>
+    <div class="about-copy rv">
+      <p class="eyebrow">About</p>
+      <h2>A Curious Mind at the Intersection of AI &amp; Creativity.</h2>
+      <p>I’m a second-year Computer Science &amp; Engineering student specializing in Artificial Intelligence and Machine Learning. I enjoy understanding how intelligent systems work, building things with technology, and exploring creative ways to solve problems.</p>
+      <p>I'm currently expanding my skills through academic projects, courses, hands-on development, and my internship experience at FLYRANK AI.</p>
+      <p>Beyond technology, I enjoy painting, sketching, playing the piano, and badminton — activities that help me stay creative, curious, and balanced.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="Academic highlights">
+  <div class="wrap">
+    <div class="band rv">
+      <div class="stat" data-ring="9.67" data-dec="2">
+        <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="52"/><circle class="pg" cx="60" cy="60" r="52" stroke="var(--teal)"/></svg><span class="num">9.67</span></div>
+        <p>1st Semester SGPA</p>
+      </div>
+      <div class="stat" data-ring="10" data-dec="2">
+        <div class="ring"><svg viewBox="0 0 120 120" aria-hidden="true"><circle class="tr" cx="60" cy="60" r="52"/><circle class="pg" cx="60" cy="60" r="52" stroke="var(--gold)"/></svg><span class="num">10.00</span></div>
+        <p>2nd Semester SGPA</p>
+      </div>
+      <div class="stat">
+        <div class="big"><span class="num"><span data-count="2" data-dec="0">2</span><small>nd</small> Year</span></div>
+        <p>CSE – AI &amp; ML</p>
+      </div>
+      <div class="stat">
+        <div class="big"><span class="num sm">FLYRANK AI</span></div>
+        <p>Current Internship</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="sec alt" id="skills">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Skills</p>
+      <h2>My Tech Garden</h2>
+      <p class="sec-sub">Hover or focus a skill to see what it connects to. Click or tap one to pin it and read more. Dashed slots are waiting for new growth.</p>
+    </div>
+    <div class="garden rv" id="garden">
+      <svg class="links" id="links" aria-hidden="true"></svg>
+      <div class="tip" id="tip" role="tooltip"></div>
+    </div>
+    <div class="skill-detail" id="skillDetail" hidden aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Projects</p>
+      <h2>Projects That Grow Ideas Into Reality.</h2>
+      <p class="sec-sub">Prediction, network design and image diagnosis: three ideas I turned into working prototypes.</p>
+    </div>
+    <div class="cards" id="cards"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="sec alt" id="experience">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Experience</p>
+      <h2>A Path That Keeps Growing.</h2>
+    </div>
+    <ol class="vine" id="vine"><span class="vine-fill" aria-hidden="true"></span></ol>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="sec" id="education">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Education</p>
+      <h2>Rooted in Strong Foundations.</h2>
+    </div>
+    <div class="edu rv">
+      <div class="edu-info">
+        <h3>Bachelor of Technology</h3>
+        <p class="branch">Computer Science &amp; Engineering – Artificial Intelligence &amp; Machine Learning</p>
+        <p>Currently in 2nd Year</p>
+        <ul class="facts">
+          <li><span class="k">Institution</span><span>Jain University</span></li>
+          <li><span class="k">Expected</span><span>2029</span></li>
+        </ul>
+      </div>
+      <div class="sems" aria-label="SGPA by semester, out of 10">
+        <div class="sem-row"><div class="sem-top"><b>Semester 1</b><span>9.67 SGPA</span></div><div class="stem"><i style="--w:96.7%"></i></div></div>
+        <div class="sem-row"><div class="sem-top"><b>Semester 2</b><span>10.00 SGPA</span></div><div class="stem"><i style="--w:100%"></i></div></div>
+        <div class="scale"><span>0</span><span>SGPA scale</span><span>10</span></div>
+      </div><svg class="roots" viewBox="0 0 600 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><path pathLength="1" d="M300 0C300 40 250 50 200 80S120 110 60 120"/><path pathLength="1" d="M300 0C310 40 360 55 420 80S520 110 560 120"/><path pathLength="1" d="M300 0C298 50 300 80 296 120"/><path pathLength="1" d="M240 62C210 72 180 72 150 102"/><path pathLength="1" d="M360 64C390 76 420 78 452 106"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="sec alt" id="courses">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Courses</p>
+      <h2>Always Learning, Course by Course.</h2>
+      <p class="sec-sub">Courses I have completed, each with its certificate.</p>
+    </div>
+    <div class="courses" id="courseGrid"></div>
+  </div>
+</section>
+
+<!-- BEYOND CODE -->
+<section class="sec" id="beyond">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Beyond Code</p>
+      <h2>Where Creativity Takes a Different Shape.</h2>
+      <p class="sec-sub">Painting, sketching, piano and badminton keep me creative, curious and balanced.</p>
+    </div>
+    <div class="hobbies rv">
+      <article class="hobby">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2-.6-1.2 0-2.5 1.5-2.5H17a4 4 0 0 0 4-4c0-5-4-9.5-9-9.5z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7" r="1"/><circle cx="15" cy="7.5" r="1"/></svg>
+        <h3>Painting</h3><p>Colour and imagination on canvas.</p>
+      </article>
+      <article class="hobby">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 0 1 3 3L8 19l-4 1z"/><path d="M14 7l3 3"/></svg>
+        <h3>Sketching</h3><p>Ideas drawn out line by line.</p>
+      </article>
+      <article class="hobby">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="14" cy="9" rx="5" ry="6.5" transform="rotate(40 14 9)"/><path d="M10 13l-6 7"/><path d="M11.5 7.5l5 5M14 5l4.5 4.5"/></svg>
+        <h3>Badminton</h3><p>Fast rallies and a clear head.</p>
+      </article>
+    </div>
+    <div class="piano-box rv" id="pianoBox">
+      <div>
+        <h3>Piano</h3>
+        <p>Try the keys. Tap or drag across them, or use A S D F G H J K and W E T Y U on a keyboard.</p><p class="piano-note" id="pianoNote">Press a key</p>
+      </div>
+      <div class="piano-wrap"><div class="piano" id="piano" role="group" aria-label="One octave piano keyboard"></div><div class="petals" id="petals" aria-hidden="true"></div></div>
+    </div>
+    <div class="gallery rv" id="gallery">
+      <button class="shot has-img" type="button" style="--r:.75" data-full="assets/art-painting.jpg" data-alt="Painting of an elephant-headed Ganesha in blues, greens and golds" aria-label="View painting larger">
+        <img src="assets/art-painting.jpg" alt="Painting of an elephant-headed Ganesha in blues, greens and golds" loading="lazy" width="1000" height="1333"><span class="shot-cap">Painting</span>
+      </button>
+      <button class="shot has-img" type="button" style="--r:.75" data-full="assets/art-sketch.jpg" data-alt="Pencil sketch of an elephant's head in profile" aria-label="View sketch larger">
+        <img src="assets/art-sketch.jpg" alt="Pencil sketch of an elephant's head in profile" loading="lazy" width="1000" height="1333"><span class="shot-cap">Sketch</span>
+      </button>
+      <button class="shot has-img" type="button" style="--r:1.333" data-full="assets/art-artwork.jpg" data-alt="Three textured wall panels of dancing figures among green plants" aria-label="View artwork larger">
+        <img src="assets/art-artwork.jpg" alt="Three textured wall panels of dancing figures among green plants" loading="lazy" width="1000" height="750"><span class="shot-cap">Artwork</span>
+      </button>
+    </div>
+    <dialog class="lightbox" id="lightbox" aria-label="Enlarged artwork"><button class="lb-x" type="button" aria-label="Close">&times;</button><img alt=""></dialog>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec alt" id="contact">
+  <div class="wrap contact">
+    <div class="sec-head rv" style="margin:0">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's Grow Something Together.</h2>
+      <p class="sec-sub">Open to conversations about AI and ML, internships, projects and ideas worth building.</p>
+    </div>
+    <div class="contact-list rv" id="contactList"></div>
+  </div>
+</section>
+
+</main>
+
+<div class="skyline" id="skyline" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> <span data-name>Your Name</span></span>
+    <span>Where Technology Meets Nature</span>
+  </div>
+</footer>
+
+<button class="to-garden" id="toGarden" type="button" aria-label="Back to the garden at the top of the page"><svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 24C4 12 12 4 24 4c0 12-8 20-20 20z"/><path d="M4 24L16 12"/></svg>Garden</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ================= CONFIG: edit these to personalise the page ================= */
+const CONFIG = {
+  name: 'Jana Vanshika',
+  email: 'vanshika.jana@gmail.com',
+  resume: '',     // link to your resume (PDF or Drive link)
+  linkedin: 'https://www.linkedin.com/in/vanshika-jana-69b44637a/',
+  github: 'https://github.com/Vanshika2907'
+};
+const PROJECTS = [
+  {
+    name: 'Bank Customer Churn Predictor',
+    description: "Estimate a customer's likelihood of exiting their banking relationship using behavioral, financial, engagement, and service indicators.",
+    tags: ['Machine Learning','Logistic Regression'],
+    image: 'assets/project-bank.jpg',
+    live: '',       // View Project link
+    github: 'https://github.com/Vanshika2907/Bank-churner'      // GitHub link
+  },
+  {
+    name: 'SmartRoute AI',
+    description: 'Explore how predicted connection costs can guide cost-effective network design using Minimum Spanning Trees.',
+    tags: ['Machine Learning','Graph Optimization','Minimum Spanning Trees'],
+    image: 'assets/project-smartroute.jpg',
+    live: 'https://smartroute-ai-tyattwzxchdnpzohgcmb8y.streamlit.app/',
+    github: ''
+  },
+  {
+    name: 'Plant Disease Detection',
+    description: 'AI powered Disease Detection',
+    tags: ['Artificial Intelligence','Image Classification'],
+    image: 'assets/project-plant.jpg',
+    live: 'https://plant-disease-detection-bio.streamlit.app/',
+    github: 'https://github.com/Vanshika2907/Plant-Disease-Detection'
+  }
+];
+const EXPERIENCE = [{
+  org: 'FLYRANK AI',
+  role: 'AI / Technology Intern',
+  status: 'Currently Interning',
+  start: 'August 2026',
+  details: {
+    'Responsibilities': 'Understanding how AI connects to real-world problems.',
+    'Technologies': 'Google Colab, Python',
+    'Projects': 'In progress',
+    'Achievements': 'Completed the Generative AI course.',
+    'What I learned': 'In progress'
+  }
+}]; // add more objects here to extend the vine
+const COURSES = [
+  {name: 'What is Generative AI?',  provider: 'LinkedIn', date: 'July 2026',      note: '', link: 'assets/certs/what-is-generative-ai.pdf'},
+  {name: 'Discrete Mathematics',    provider: 'LinkedIn', date: 'September 2026', note: '', link: 'assets/certs/discrete-mathematics.pdf'},
+  {name: 'Graph Neural Networks',   provider: 'LinkedIn', date: 'November 2026',  note: '', link: 'assets/certs/graph-neural-networks.pdf'}
+];
+const SKILLS = [
+  {cat:'Programming', items:[
+    {n:'Python', t:'General-purpose language widely used for AI and data work.'},
+    {n:'Java', t:'Object-oriented language for building software.'}, {p:1}]},
+  {cat:'AI & Machine Learning', items:[
+    {n:'Artificial Intelligence', t:'Building systems that handle tasks needing human-like intelligence.'},
+    {n:'Machine Learning', t:'Algorithms that learn patterns from data.'}, {p:1}, {p:1}]},
+  {cat:'Development', items:[
+    {n:'Frontend Development', t:'Designing and building what people see and use in the browser.'},
+    {n:'HTML', t:'The structure of every web page.'}, {n:'CSS', t:'Styling and layout for the web.'},
+    {n:'JavaScript', t:'The language that makes web pages interactive.'}, {p:1}]},
+  {cat:'Tools', items:[
+    {n:'Git', t:'Version control for tracking changes in code.'}, {n:'GitHub', t:'Hosting and collaboration for Git projects.'},
+    {n:'VS Code', t:'A popular code editor.'}, {n:'Jupyter Notebook', t:'Interactive notebooks for code, notes and results.'}, {p:1}]}
+];
+const REL = {
+  'Python':['Machine Learning','Artificial Intelligence','Jupyter Notebook'],
+  'Machine Learning':['Artificial Intelligence','Jupyter Notebook'],
+  'Frontend Development':['HTML','CSS','JavaScript'],
+  'HTML':['CSS'], 'CSS':['JavaScript'], 'Git':['GitHub']
+};
+
+/* Interactive garden: one entry per landmark. `key` matches data-hub in the SVG.
+   label/hint = text of the floating tooltip, target = where a click travels to. */
+const HUB = [
+  {key:'about',      label:'About',       hint:'The garden: who I am',                  target:'#about'},
+  {key:'skills',     label:'Skills',      hint:'The tower of tools and technologies',   target:'#skills'},
+  {key:'projects',   label:'Projects',    hint:'The greenhouse where ideas grow',       target:'#projects'},
+  {key:'experience', label:'Experience',  hint:'The tree that keeps growing',           target:'#experience'},
+  {key:'education',  label:'Education',   hint:'Rooted in strong foundations',          target:'#education'},
+  {key:'courses',    label:'Courses',     hint:'A growing stack of learning',           target:'#courses'},
+  {key:'beyond',     label:'Beyond Code', hint:'The easel: painting and sketching',     target:'#beyond'},
+  {key:'piano',      label:'Piano',       hint:'Come and play a few notes',             target:'#pianoBox', block:'center'},
+  {key:'contact',    label:'Contact',     hint:'The glowing node: say hello',           target:'#contact'}
+];
+
+/* ============================================================================== */
+
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const NS = 'http://www.w3.org/2000/svg';
+function svgEl(tag, attrs, parent){ const e = document.createElementNS(NS, tag); for(const k in attrs) e.setAttribute(k, attrs[k]); if(parent) parent.appendChild(e); return e; }
+function rng(seed){ return function(){ seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+
+/* ---------- toast + basics ---------- */
+let toastT;
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2600); }
+$$('[data-name]').forEach(n => n.textContent = CONFIG.name);
+$('#yr').textContent = new Date().getFullYear();
+
+/* ---------- nav ---------- */
+const nav = $('#nav'), burger = $('#burger'), menu = $('#menu');
+function onScroll(){ nav.classList.toggle('scrolled', scrollY > 30); }
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+burger.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open); burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+});
+$$('a', menu).forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }));
+const navLinks = $$('a[href^="#"]:not(.btn)', menu);
+const secIO = new IntersectionObserver(es => es.forEach(e => {
+  if(e.isIntersecting) navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+}), {rootMargin:'-45% 0px -50% 0px'});
+$$('main > section[id]').forEach(s => secIO.observe(s));
+const resumeBtn = $('#resumeBtn');
+if(CONFIG.resume){ resumeBtn.href = CONFIG.resume; resumeBtn.target = '_blank'; resumeBtn.rel = 'noopener'; }
+else resumeBtn.addEventListener('click', e => { e.preventDefault(); toast('Resume link has not been added yet.'); });
+
+/* ---------- hero scene ---------- */
+(function(){
+  const scene = $('#scene'); if(!scene) return;
+  const R = rng(7);
+  // sun rays
+  const rays = $('#rays');
+  for(let i = 0; i < 18; i++){
+    const a = i / 18 * Math.PI * 2, r1 = 64, r2 = i % 2 ? 76 : 84;
+    svgEl('line', {x1:420 + Math.cos(a)*r1, y1:170 + Math.sin(a)*r1, x2:420 + Math.cos(a)*r2, y2:170 + Math.sin(a)*r2, stroke:'var(--gold)', 'stroke-width':3, 'stroke-linecap':'round'}, rays);
+  }
+  // tower windows
+  const wins = $('#wins');
+  for(let c = 0; c < 4; c++) for(let r = 0; r < 11; r++){
+    const lit = R() < .22;
+    const w = svgEl('rect', {x:276 + c*27, y:272 + r*24, width:15, height:11, rx:3, fill:lit ? '' : 'var(--sc-win)', class:lit ? 'lit' : ''}, wins);
+    if(lit) w.style.animationDelay = (-R()*5).toFixed(2) + 's';
+  }
+  // foreground plants
+  const plants = $('#plants'), aboutPlants = $('#aboutPlants'), BY = 556;
+  [24,58,100,150,196,238,274,306,338,372,412,452,496,540,578].forEach((x, i) => {
+    const h = 44 + R()*62, lean = (R() - .5)*26;
+    const g = svgEl('g', {class:'wind', style:`transform-origin:${x}px ${BY}px`}, (x >= 150 && x <= 412) ? aboutPlants : plants); // centre plants belong to the About hotspot
+    const s = svgEl('g', {class:'sway', style:`transform-origin:${x}px ${BY}px;animation-delay:${(-R()*7).toFixed(2)}s`}, g);
+    const cx = x + lean*.4, cy = BY - h*.5, ex = x + lean, ey = BY - h;
+    svgEl('path', {d:`M${x} ${BY}Q${cx} ${cy} ${ex} ${ey}`, stroke:'var(--sc-leaf-a)', 'stroke-width':3, fill:'none', 'stroke-linecap':'round'}, s);
+    const n = 3 + Math.floor(R()*3);
+    for(let k = 1; k <= n; k++){
+      const t = k / (n + 1), u = 1 - t;
+      const px = u*u*x + 2*u*t*cx + t*t*ex, py = u*u*BY + 2*u*t*cy + t*t*ey;
+      const side = k % 2 ? 1 : -1, rx = 9 + R()*7;
+      svgEl('ellipse', {cx:px + side*rx*.8, cy:py, rx:rx, ry:4.2, fill:k % 2 ? 'var(--sc-leaf-b)' : 'var(--sc-leaf-a)', transform:`rotate(${side*-(28 + R()*18)} ${px + side*rx*.8} ${py})`}, s);
+    }
+    if(i % 3 === 0) svgEl('circle', {cx:ex, cy:ey - 2, r:3.6, fill:'var(--gold)'}, s);
+  });
+  // network
+  const net = $('#net');
+  const P = {A:[215,380], B:[262,330], C:[390,390], D:[95,500], E:[441,507], F:[529,510], G:[471,318]};
+  [['A','B'],['B','C'],['A','D'],['C','E'],['E','F'],['C','G'],['F','G']].forEach(([a,b]) => {
+    const [x1,y1] = P[a], [x2,y2] = P[b], mx = (x1+x2)/2, my = (y1+y2)/2, dx = x2-x1, dy = y2-y1, L = Math.hypot(dx,dy) || 1;
+    svgEl('path', {class:'flow', d:`M${x1} ${y1}Q${mx - dy/L*L*.16} ${my + dx/L*L*.16} ${x2} ${y2}`}, net);
+  });
+  const nodes = Object.values(P).map(([x,y]) => {
+    const g = svgEl('g', {class:'nd'}, net);
+    svgEl('circle', {class:'halo', cx:x, cy:y, r:9}, g); svgEl('circle', {class:'core', cx:x, cy:y, r:4.5}, g);
+    return g;
+  });
+
+  // pointer: parallax, wind, node glow
+  const hero = $('#home');
+  let tx = 0, ty = 0, cx0 = 0, cy0 = 0, raf = 0, px = -9999, py = -9999;
+  function settle(){
+    cx0 += (tx - cx0)*.08; cy0 += (ty - cy0)*.08;
+    scene.style.setProperty('--mx', cx0.toFixed(3)); scene.style.setProperty('--my', cy0.toFixed(3)); scene.style.setProperty('--wind', cx0.toFixed(3));
+    raf = (Math.abs(tx - cx0) > .002 || Math.abs(ty - cy0) > .002) ? requestAnimationFrame(settle) : 0;
+  }
+  function glow(clientX, clientY){
+    nodes.forEach(n => { const b = n.getBoundingClientRect(), d = Math.hypot(b.left + b.width/2 - clientX, b.top + b.height/2 - clientY); n.classList.toggle('on', d < 70); });
+  }
+  if(!reduce){
+    let pend = false, lx = 0, ly = 0;
+    hero.addEventListener('pointermove', e => {
+      const r = scene.getBoundingClientRect();
+      tx = Math.max(-1, Math.min(1, ((e.clientX - r.left)/r.width - .5)*2));
+      ty = Math.max(-1, Math.min(1, ((e.clientY - r.top)/r.height - .5)*2));
+      px = e.clientX - r.left; py = e.clientY - r.top; lx = e.clientX; ly = e.clientY;
+      if(!raf) raf = requestAnimationFrame(settle);
+      if(!pend){ pend = true; requestAnimationFrame(() => { pend = false; glow(lx, ly); }); }
+    });
+    hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; px = py = -9999; nodes.forEach(n => n.classList.remove('on')); if(!raf) raf = requestAnimationFrame(settle); });
+  }
+
+  // drifting motes on canvas
+  const cv = $('#motes'), ctx = cv.getContext('2d');
+  let W = 0, H = 0, dpr = 1, running = false, frame = 0, cols = {gold:'#D99A1E', cyan:'#17A0B8'};
+  const M = Array.from({length:44}, () => ({x:R(), y:R(), r:1.2 + R()*2.2, s:.00007 + R()*.00016, ph:R()*6.28, c:R() < .55 ? 'gold' : 'cyan', ox:0, oy:0}));
+  function size(){ dpr = Math.min(devicePixelRatio || 1, 2); W = scene.clientWidth; H = scene.clientHeight; cv.width = W*dpr; cv.height = H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  function colors(){ const cs = getComputedStyle(scene); cols.gold = cs.getPropertyValue('--gold').trim() || cols.gold; cols.cyan = cs.getPropertyValue('--cyan').trim() || cols.cyan; }
+  let last = 0, looping = false;
+  function go(){ if(!looping){ looping = true; last = performance.now(); requestAnimationFrame(draw); } }
+  function draw(t){
+    const dt = Math.min(t - last, 50); last = t;
+    if(frame++ % 120 === 0) colors();
+    ctx.clearRect(0, 0, W, H);
+    for(const m of M){
+      if(!reduce){ m.y -= m.s*dt; if(m.y < -.03){ m.y = 1.03; m.x = Math.random(); } }
+      let x = (m.x + Math.sin(t*.0004 + m.ph)*.018)*W + m.ox, y = m.y*H + m.oy;
+      const dx = x - px, dy = y - py, d = Math.hypot(dx, dy);
+      if(d < 90 && d > 0){ const f = (90 - d)/90*2.2; m.ox += dx/d*f; m.oy += dy/d*f; }
+      m.ox *= .94; m.oy *= .94;
+      ctx.globalAlpha = .75; ctx.fillStyle = cols[m.c]; ctx.shadowColor = cols[m.c]; ctx.shadowBlur = 8;
+      ctx.beginPath(); ctx.arc(x, y, m.r, 0, 6.283); ctx.fill();
+    }
+    ctx.globalAlpha = 1; ctx.shadowBlur = 0;
+    if(running && !reduce && !document.body.classList.contains('calm')) requestAnimationFrame(draw); else looping = false;
+  }
+  size(); colors();
+  new ResizeObserver(() => { size(); if(reduce || !running) draw(performance.now()); }).observe(scene);
+  if(reduce) draw(0);
+  else new IntersectionObserver(es => {
+    const v = es[0].isIntersecting;
+    if(v && !running){ running = true; if(!document.body.classList.contains('calm')) go(); } else if(!v) running = false;
+  }).observe(scene);
+  addEventListener('calm', () => { if(running && !document.body.classList.contains('calm')) go(); });
+})();
+
+/* ---------- interactive garden hub ---------- */
+(function(){
+  const scene = $('#scene'), tip = $('#hsTip'), list = $('#mapList'), count = $('#mapCount'), fab = $('#toGarden');
+  const byKey = {}; HUB.forEach(h => byKey[h.key] = h);
+  const hs = {}, chips = {}, seen = new Set();
+  let interacted = false, touring = false, arriveT;
+  try{ JSON.parse(sessionStorage.getItem('tgSeen') || '[]').forEach(k => { if(byKey[k]) seen.add(k); }); }catch(e){}
+
+  /* --- travelling: smooth scroll (sticky nav handled by scroll-padding) + arrival highlight --- */
+  function afterScroll(cb){
+    let done = false, t;
+    const fin = () => { if(done) return; done = true; clearTimeout(t); removeEventListener('scrollend', fin); cb(); };
+    addEventListener('scrollend', fin);
+    t = setTimeout(fin, reduce ? 50 : 1300);
+  }
+  function arrive(el){
+    $$('.arrive').forEach(n => n.classList.remove('arrive'));
+    if(el.id === 'home' || el.id === 'main') return;
+    void el.offsetWidth; el.classList.add('arrive');
+    clearTimeout(arriveT); arriveT = setTimeout(() => el.classList.remove('arrive'), 2300);
+  }
+  function travel(sel, opt){
+    const el = document.querySelector(sel); if(!el) return;
+    el.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: (opt && opt.block) || 'start'});
+    try{ history.replaceState(null, '', sel); }catch(e){}
+    afterScroll(() => arrive(el));
+  }
+  window.TG = {travel};
+
+  /* --- discovery counter --- */
+  function paintSeen(k){ if(hs[k]) hs[k].classList.add('seen'); if(chips[k]) chips[k].classList.add('seen'); }
+  function updateCount(){ count.textContent = seen.size + ' / ' + HUB.length + ' explored'; }
+  function markSeen(k){
+    const first = !seen.has(k); seen.add(k); paintSeen(k); updateCount();
+    try{ sessionStorage.setItem('tgSeen', JSON.stringify([...seen])); }catch(e){}
+    if(first && seen.size === HUB.length) setTimeout(() => toast("You've explored the whole garden."), 1400);
+  }
+
+  /* --- floating label --- */
+  function rectOf(el){
+    let l = 1e9, t = 1e9, r = -1e9, b = -1e9;
+    el.querySelectorAll('.hs-halo').forEach(h => { const q = h.getBoundingClientRect(); l = Math.min(l, q.left); t = Math.min(t, q.top); r = Math.max(r, q.right); b = Math.max(b, q.bottom); });
+    return {l, t, r, b};
+  }
+  function showTip(key){
+    const h = byKey[key], el = hs[key]; if(!h || !el) return;
+    tip.innerHTML = '<b>' + h.label + '</b><span>' + h.hint + '</span>';
+    tip.classList.remove('below'); tip.classList.add('show');
+    const s = scene.getBoundingClientRect(), q = rectOf(el), w = tip.offsetWidth, th = tip.offsetHeight;
+    const cx = (q.l + q.r)/2 - s.left, lim = w/2 + 8, x = Math.max(lim, Math.min(s.width - lim, cx));
+    let y = q.t - s.top - 12;
+    if(y - th < 8){ y = q.b - s.top + 12; tip.classList.add('below'); }
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+    tip.style.setProperty('--ax', Math.max(14, Math.min(w - 14, w/2 + cx - x)) + 'px');
+  }
+  function hideTip(){ tip.classList.remove('show'); }
+  function setOn(key, on){
+    if(hs[key]) hs[key].classList.toggle('on', on);
+    if(chips[key]) chips[key].classList.toggle('on', on);
+    if(on) showTip(key); else hideTip();
+  }
+
+  /* --- click / keyboard --- */
+  function go(key){
+    const h = byKey[key], el = hs[key]; if(!h) return;
+    interacted = true;
+    if(el){ el.classList.remove('go'); void el.getBoundingClientRect(); el.classList.add('go'); setTimeout(() => el.classList.remove('go'), 600); }
+    markSeen(key); hideTip(); toast('Heading to ' + h.label + '...');
+    travel(h.target, {block: h.block});
+  }
+
+  /* --- wire hotspots + build the garden map --- */
+  HUB.forEach(h => {
+    const el = $('.hs[data-hub="' + h.key + '"]');
+    if(el){
+      hs[h.key] = el; el.setAttribute('aria-label', h.label + ': ' + h.hint);
+      el.addEventListener('pointerenter', e => { if(e.pointerType !== 'touch'){ interacted = true; setOn(h.key, true); } });
+      el.addEventListener('pointerleave', () => setOn(h.key, false));
+      el.addEventListener('focus', () => { if(el.matches(':focus-visible')) setOn(h.key, true); });
+      el.addEventListener('blur', () => setOn(h.key, false));
+      el.addEventListener('click', () => go(h.key));
+      el.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(h.key); } });
+    }
+    const li = document.createElement('li'), b = document.createElement('button');
+    b.type = 'button'; b.className = 'map-chip'; b.textContent = h.label; chips[h.key] = b;
+    b.addEventListener('click', () => go(h.key));
+    b.addEventListener('pointerenter', e => { if(e.pointerType === 'mouse') setOn(h.key, true); });
+    b.addEventListener('pointerleave', () => setOn(h.key, false));
+    li.appendChild(b); list.appendChild(li);
+  });
+  seen.forEach(paintSeen); updateCount();
+
+  /* --- gentle "show me around": landmarks light up one after another --- */
+  function tour(){
+    if(touring) return; touring = true;
+    HUB.forEach((h, i) => setTimeout(() => { const el = hs[h.key]; if(!el) return; el.classList.add('peek'); setTimeout(() => el.classList.remove('peek'), 800); }, i*600));
+    setTimeout(() => { touring = false; }, HUB.length*600 + 800);
+  }
+  $('#cue').addEventListener('click', () => {
+    interacted = true;
+    const r = scene.getBoundingClientRect();
+    if(r.top < 0 || r.bottom > innerHeight) scene.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'center'});
+    setTimeout(tour, reduce ? 0 : 450);
+  });
+  let toured = false; try{ toured = !!sessionStorage.getItem('tgTour'); }catch(e){}
+  if(!reduce && !toured) new IntersectionObserver((es, io) => {
+    if(!es[0].isIntersecting) return; io.disconnect();
+    setTimeout(() => { if(!interacted){ tour(); try{ sessionStorage.setItem('tgTour', '1'); }catch(e){} } }, 1400);
+  }, {threshold:.6}).observe(scene);
+
+  /* --- back to the garden --- */
+  function fabState(){ fab.classList.toggle('show', scrollY > innerHeight*.9); }
+  addEventListener('scroll', fabState, {passive:true}); fabState();
+  fab.addEventListener('click', () => travel('#home'));
+
+  /* --- every in-page link (navbar, buttons) uses the same journey --- */
+  document.addEventListener('click', e => {
+    if(e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    const a = e.target.closest('a[href^="#"]'); if(!a || a.classList.contains('skip')) return;
+    const id = a.getAttribute('href'); if(id.length < 2 || !document.querySelector(id)) return;
+    e.preventDefault(); travel(id);
+  });
+})();
+
+/* ---------- stats ---------- */
+(function(){
+  const C = 2*Math.PI*52;
+  const ease = t => 1 - Math.pow(1 - t, 3);
+  function setRing(st, frac){ const pg = $('.pg', st); pg.style.strokeDasharray = C; pg.style.strokeDashoffset = C*(1 - frac); }
+  $$('.stat[data-ring]').forEach(st => setRing(st, +st.dataset.ring/10));
+  if(reduce) return;
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(!e.isIntersecting) return; io.unobserve(e.target);
+    const st = e.target, ring = st.dataset.ring, el = ring ? $('.num', st) : $('[data-count]', st);
+    const end = +(ring || el.dataset.count), dec = +(st.dataset.dec ?? el.dataset.dec ?? 0);
+    if(ring){ const pg = $('.pg', st); pg.style.transition = 'none'; pg.style.strokeDashoffset = C; void pg.getBoundingClientRect(); pg.style.transition = ''; requestAnimationFrame(() => setRing(st, end/10)); }
+    const t0 = performance.now(), dur = 1400;
+    (function step(now){ const p = Math.min((now - t0)/dur, 1); el.textContent = (end*ease(p)).toFixed(dec); if(p < 1) requestAnimationFrame(step); })(t0);
+  }), {threshold:.5});
+  $$('.stat').forEach(s => { if(s.dataset.ring || $('[data-count]', s)) io.observe(s); });
+})();
+
+/* ---------- skills garden ---------- */
+(function(){
+  const garden = $('#garden'), svg = $('#links'), tip = $('#tip'), detail = $('#skillDetail');
+  const leaf = '<svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22C4 11 11 4 22 4c0 11-7 18-18 18z"/><path d="M4 22L15 11"/></svg>';
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const byName = {}, info = {};
+  SKILLS.forEach(g => {
+    const plot = document.createElement('div'); plot.className = 'plot';
+    plot.innerHTML = `<h3>${leaf}${g.cat}</h3>`;
+    const ul = document.createElement('ul'); ul.className = 'nodes';
+    g.items.forEach(it => {
+      const li = document.createElement('li'), b = document.createElement('button');
+      b.type = 'button'; b.className = 'node' + (it.p ? ' ph' : '');
+      b.textContent = it.p ? 'Add a skill' : it.n;
+      b.dataset.tip = it.p ? 'Placeholder: a new skill will grow here.' : it.t;
+      if(!it.p){ byName[it.n] = b; info[it.n] = {cat:g.cat, t:it.t}; b.setAttribute('aria-pressed', 'false'); }
+      li.appendChild(b); ul.appendChild(li);
+    });
+    plot.appendChild(ul); garden.insertBefore(plot, svg);
+  });
+  const edges = [];
+  for(const a in REL) REL[a].forEach(b => { if(byName[a] && byName[b]) edges.push([a, b]); });
+  const related = n => { const out = []; edges.forEach(([a, b]) => { if(a === n) out.push(b); else if(b === n) out.push(a); }); return out; };
+  let paths = [], pinned = null;
+
+  function layout(){
+    const g = garden.getBoundingClientRect(); if(!g.width) return;
+    svg.setAttribute('viewBox', `0 0 ${g.width} ${g.height}`); svg.innerHTML = ''; paths = [];
+    const pos = n => { const r = byName[n].getBoundingClientRect(); return [r.left - g.left + r.width/2, r.top - g.top + r.height/2]; };
+    edges.forEach(([a, b]) => {
+      const [x1,y1] = pos(a), [x2,y2] = pos(b), mx = (x1+x2)/2, my = (y1+y2)/2, dx = x2-x1, dy = y2-y1;
+      const p = svgEl('path', {d:`M${x1} ${y1}Q${mx - dy*.18} ${my + dx*.18} ${x2} ${y2}`}, svg);
+      paths.push({p, a, b});
+    });
+    if(pinned) paint(pinned);
+  }
+  /* paint = highlight a skill and the vines linking it to its neighbours */
+  function paint(name){
+    garden.classList.add('dim'); byName[name].classList.add('hot');
+    paths.forEach(o => { if(o.a === name || o.b === name){ o.p.classList.add('hot'); byName[o.a === name ? o.b : o.a].classList.add('rel'); } });
+  }
+  function clearHot(){
+    garden.classList.remove('dim'); $$('.node', garden).forEach(n => n.classList.remove('hot', 'rel')); paths.forEach(o => o.p.classList.remove('hot')); tip.style.display = 'none';
+    if(pinned) paint(pinned);   // a pinned skill stays lit
+  }
+  function showTip(btn){
+    tip.textContent = btn.dataset.tip; tip.style.display = 'block';
+    const g = garden.getBoundingClientRect(), r = btn.getBoundingClientRect(), half = tip.offsetWidth/2;
+    tip.style.left = Math.max(half + 4, Math.min(g.width - half - 4, r.left - g.left + r.width/2)) + 'px';
+    tip.style.top = (r.top - g.top - 10) + 'px';
+  }
+  function hot(btn){
+    clearHot();
+    if(btn.classList.contains('ph')){ btn.classList.add('hot'); showTip(btn); return; }
+    paint(Object.keys(byName).find(k => byName[k] === btn)); showTip(btn);
+  }
+
+  /* pinned detail panel (works on touch, where hover does not) */
+  function render(){
+    if(!pinned){ detail.hidden = true; detail.innerHTML = ''; return; }
+    const i = info[pinned], rel = related(pinned);
+    const used = PROJECTS.filter(p => p.tags.includes(pinned) && p.name && p.name.charAt(0) !== '[');
+    detail.innerHTML =
+      `<div class="sd-head"><span class="sd-cat">${esc(i.cat)}</span><h3>${esc(pinned)}</h3><button class="sd-x" type="button" aria-label="Close skill details">&times;</button></div>` +
+      `<p>${esc(i.t)}</p>` +
+      `<div class="sd-row"><span class="sd-k">Connected to</span>${rel.length ? rel.map(n => `<button type="button" class="sd-chip" data-skill="${esc(n)}">${esc(n)}</button>`).join('') : '<span>Nothing linked yet</span>'}</div>` +
+      `<div class="sd-row"><span class="sd-k">Used in</span>${used.length ? used.map(p => `<button type="button" class="sd-chip" data-go="#projects">${esc(p.name)}</button>`).join('') : '<span>Projects will appear here once they list this skill as a tag.</span>'}</div>`;
+    detail.hidden = false;
+  }
+  function pin(name, force){
+    pinned = (!force && pinned === name) ? null : name;
+    Object.keys(byName).forEach(k => byName[k].setAttribute('aria-pressed', String(k === pinned)));
+    clearHot(); render();
+    if(pinned){ const r = detail.getBoundingClientRect(); if(r.bottom > innerHeight) detail.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block:'nearest'}); }
+  }
+  detail.addEventListener('click', e => {
+    const c = e.target.closest('button'); if(!c) return;
+    if(c.classList.contains('sd-x')){ const b = byName[pinned]; pin(pinned); if(b) b.focus(); }
+    else if(c.dataset.skill){ pin(c.dataset.skill, true); byName[c.dataset.skill].focus(); }
+    else if(c.dataset.go && window.TG) TG.travel(c.dataset.go);
+  });
+  document.addEventListener('keydown', e => { if(e.key === 'Escape' && pinned) pin(pinned); });
+
+  $$('.node', garden).forEach(b => {
+    b.addEventListener('mouseenter', () => hot(b)); b.addEventListener('focus', () => hot(b));
+    b.addEventListener('mouseleave', clearHot); b.addEventListener('blur', clearHot);
+    if(!b.classList.contains('ph')) b.addEventListener('click', () => { const n = Object.keys(byName).find(k => byName[k] === b); pin(n); if(pinned === n) hot(b); });
+  });
+  layout();
+  new ResizeObserver(layout).observe(garden);
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+})();
+
+/* ---------- animated scenes (original illustrations) ---------- */
+const R_ = (n, f) => Array.from({length:n}, (_, i) => f(i)).join('');
+const SVGO = 'viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"';
+const SCENES = [
+{title:'Rooftop Harvest', cap:'Solar roofs, living walls and quiet air-taxis share one skyline.', svg:p=>`<svg ${SVGO}>
+<defs><linearGradient id="${p}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6E7BC4"/><stop offset=".55" stop-color="#F2BE98"/><stop offset="1" stop-color="#FCE3AE"/></linearGradient>
+<pattern id="${p}g" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M12 0H0V12" fill="none" stroke="#9DB8FF" stroke-opacity=".55"/></pattern></defs>
+<rect width="480" height="300" fill="url(#${p}a)"/>
+<g class="cloud"><ellipse cx="110" cy="58" rx="54" ry="9" fill="#fff" opacity=".35"/><ellipse cx="370" cy="38" rx="44" ry="8" fill="#fff" opacity=".3"/></g>
+<polygon points="0,175 66,104 118,146 190,82 270,152 332,112 404,158 480,124 480,300 0,300" fill="#8C98CE"/>
+<polygon points="56,114 66,104 80,118 66,112" fill="#fff"/><polygon points="176,96 190,82 206,100 190,92" fill="#fff"/>
+<path d="M0 214Q120 176 240 208T480 192V300H0Z" fill="#3A6A62"/>
+${R_(9,i=>`<circle cx="${20+i*55}" cy="${202+(i%3)*6}" r="${16+(i%4)*3}" fill="#2D5A55"/>`)}
+<rect x="350" y="146" width="76" height="70" fill="#CDB8C2"/><polygon points="344,146 388,120 432,146" fill="#8A7DA2"/><ellipse cx="388" cy="124" rx="22" ry="6" fill="#6FA85A"/><polygon points="366,138 398,130 410,142 378,150" fill="#3E63C8"/>
+<g transform="translate(0 70)"><g class="fly"><g class="bob"><ellipse cx="0" cy="0" rx="34" ry="13" fill="#FFF3C4"/><ellipse cx="6" cy="-7" rx="19" ry="9" fill="#7EC3F0" opacity=".92"/><ellipse cx="-24" cy="-16" rx="14" ry="3" fill="#fff" opacity=".7" class="rotor"/><ellipse cx="26" cy="-16" rx="14" ry="3" fill="#fff" opacity=".7" class="rotor"/><path d="M-24 -16L-16 -8M26 -16L18 -8" stroke="#C9B98A" stroke-width="2"/></g></g></g>
+<polygon points="8,300 70,150 300,176 362,300" fill="#4F8F4D"/>
+<polygon points="70,150 300,176 296,186 66,162" fill="#B9703F"/>
+<g fill="#2F50AA"><polygon points="88,170 160,176 148,224 70,216"/><polygon points="170,178 246,185 236,234 157,226"/><polygon points="256,187 300,191 296,240 245,234"/></g>
+<g fill="url(#${p}g)"><polygon points="88,170 160,176 148,224 70,216"/><polygon points="170,178 246,185 236,234 157,226"/><polygon points="256,187 300,191 296,240 245,234"/></g>
+<rect x="278" y="140" width="14" height="36" fill="#E8DCC0"/><circle cx="285" cy="136" r="12" fill="#F6D96B" class="glowp"/>
+<g fill="#C77AD6"><circle cx="30" cy="252" r="4"/><circle cx="52" cy="262" r="4"/><circle cx="76" cy="244" r="3"/><circle cx="308" cy="262" r="3.5"/><circle cx="332" cy="278" r="4"/><circle cx="318" cy="240" r="3"/></g>
+<g fill="#E36B8C"><circle cx="40" cy="274" r="3"/><circle cx="296" cy="272" r="3"/><circle cx="350" cy="292" r="3.5"/></g>
+<rect x="28" y="266" width="22" height="30" rx="4" fill="#FFD36B" class="glowp"/>
+<g fill="#3F8A4A">${R_(8,i=>`<ellipse cx="${20+i*46}" cy="${288+(i%2)*6}" rx="14" ry="5" transform="rotate(${i%2?-20:20} ${20+i*46} ${288+(i%2)*6})"/>`)}</g>
+</svg>`},
+
+{title:'Water Wheel Garden', cap:'A stream turns an old wheel while a floating gauge shows the clean power it makes.', svg:p=>`<svg ${SVGO}>
+<defs><linearGradient id="${p}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8DBB86"/><stop offset="1" stop-color="#25503F"/></linearGradient>
+<linearGradient id="${p}w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6FC3C6"/><stop offset="1" stop-color="#1F6A77"/></linearGradient></defs>
+<rect width="480" height="300" fill="url(#${p}a)"/>
+<g fill="#2C5F44" opacity=".8">${R_(7,i=>`<circle cx="${i*80}" cy="${40+(i%3)*18}" r="${40+(i%2)*12}"/>`)}</g>
+<polygon points="190,0 270,0 340,300 120,300" fill="#fff" opacity=".07"/>
+<g stroke="#D7EBA8" stroke-width="3" stroke-linecap="round" fill="none">${R_(6,i=>`<path d="M${400+i*14} 300Q${396+i*14} 250 ${406+i*14} ${200-(i%3)*10}"/>`)}</g>
+<ellipse cx="250" cy="244" rx="220" ry="56" fill="url(#${p}w)"/>
+<g fill="none" stroke="#fff" stroke-opacity=".6">${R_(3,i=>`<ellipse cx="250" cy="250" rx="30" ry="8" class="ripple" style="animation-delay:${-i*1.3}s"/>`)}</g>
+<polygon points="196,12 304,12 296,40 204,40" fill="#8A5C3B"/>
+<rect x="238" y="40" width="26" height="92" fill="#B9E7EC" opacity=".75"/>
+<g stroke="#fff" stroke-width="2" stroke-linecap="round" class="flo" opacity=".8"><path d="M244 44V130M251 44V130M258 44V130"/></g>
+<g transform="translate(250 170)"><g class="rot"><circle r="60" fill="none" stroke="#7A5233" stroke-width="7"/>${R_(8,i=>`<path d="M0 0V-58" stroke="#7A5233" stroke-width="4" transform="rotate(${i*45})"/><rect x="-7" y="-76" width="14" height="28" rx="2" fill="#8F6040" transform="rotate(${i*45})"/>`)}<circle r="10" fill="#5B3B25"/></g></g>
+<g transform="translate(36 76)"><g class="bob"><rect width="88" height="64" rx="8" fill="#7FE9F2" fill-opacity=".16" stroke="#7FE9F2" stroke-width="1.5"/><g fill="#7FE9F2"><rect x="12" y="36" width="9" height="18"/><rect x="26" y="28" width="9" height="26"/><rect x="40" y="20" width="9" height="34"/></g><path d="M58 52A14 14 0 0 1 82 42" fill="none" stroke="#7FE9F2" stroke-width="3" stroke-linecap="round" class="glowp"/></g></g>
+<g fill="#7D8A7A"><ellipse cx="60" cy="262" rx="46" ry="22"/><ellipse cx="410" cy="268" rx="52" ry="20"/></g><g fill="#9AA796"><ellipse cx="52" cy="254" rx="26" ry="8"/><ellipse cx="404" cy="260" rx="30" ry="8"/></g>
+<g fill="#3E8F4F">${R_(7,i=>`<ellipse class="sw" cx="${12+i*28}" cy="${282-(i%3)*6}" rx="9" ry="22" style="animation-delay:${-i*.6}s"/>`)}${R_(6,i=>`<ellipse class="sw" cx="${330+i*28}" cy="${284-(i%2)*8}" rx="9" ry="24" style="animation-delay:${-i*.5}s"/>`)}</g>
+<g fill="#F08CA8"><circle cx="40" cy="262" r="4"/><circle cx="380" cy="258" r="4"/><circle cx="440" cy="262" r="3.5"/></g>
+<g fill="#F4F9A8">${R_(9,i=>`<circle class="tw" cx="${30+(i*61)%420}" cy="${60+(i*47)%190}" r="2" style="animation-delay:${-i*.4}s"/>`)}</g>
+</svg>`},
+
+{title:'Solar Meadow', cap:'Panels tilt toward the sun above a field where grass, flowers and sheep carry on.', svg:p=>`<svg ${SVGO}>
+<defs><linearGradient id="${p}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8CCBF0"/><stop offset="1" stop-color="#F9F2CF"/></linearGradient>
+<linearGradient id="${p}p" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4B7BE0"/><stop offset="1" stop-color="#23399A"/></linearGradient>
+<pattern id="${p}g" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M14 0H0V14" fill="none" stroke="#B9D2FF" stroke-opacity=".4"/></pattern>
+<clipPath id="${p}c"><polygon points="14,26 214,8 246,100 40,128"/><polygon points="290,44 470,22 480,96 306,118"/></clipPath></defs>
+<rect width="480" height="300" fill="url(#${p}a)"/>
+<circle cx="404" cy="44" r="66" fill="#FFF7C8" opacity=".7"/><circle cx="404" cy="44" r="26" fill="#FFF1A8"/>
+<g class="cloud"><ellipse cx="90" cy="152" rx="60" ry="10" fill="#fff" opacity=".7"/><ellipse cx="330" cy="142" rx="46" ry="8" fill="#fff" opacity=".6"/></g>
+<path d="M0 172Q100 142 200 166T480 152V300H0Z" fill="#A9CCA0"/>
+<g fill="#4468C8">${R_(5,i=>`<polygon points="${214+i*22},166 ${234+i*22},164 ${232+i*22},174 ${212+i*22},176"/>`)}</g>
+<path d="M0 206Q120 176 250 206T480 192V300H0Z" fill="#7DB878"/>
+<path d="M60 300Q120 244 200 236T330 214" fill="none" stroke="#BFE5F2" stroke-width="10" stroke-linecap="round" opacity=".85"/>
+<rect x="150" y="150" width="8" height="42" fill="#6A5439"/><circle cx="154" cy="140" r="26" fill="#4E8D4A"/><circle cx="140" cy="150" r="18" fill="#5E9F57"/>
+<g stroke="#9AA3AE" stroke-width="6" stroke-linecap="round"><path d="M70 120L62 204M180 108L190 194M360 112L352 204M440 100L452 194"/></g>
+<g stroke="#7FE9F2" stroke-width="2"><polygon points="14,26 214,8 246,100 40,128" fill="url(#${p}p)"/><polygon points="290,44 470,22 480,96 306,118" fill="url(#${p}p)"/></g>
+<g fill="url(#${p}g)"><polygon points="14,26 214,8 246,100 40,128"/><polygon points="290,44 470,22 480,96 306,118"/></g>
+<g clip-path="url(#${p}c)"><g class="glint"><rect x="-60" y="0" width="46" height="170" fill="#fff" opacity=".45" transform="skewX(-22)"/></g></g>
+<path d="M0 300V256Q80 236 170 262T340 258Q420 246 480 262V300Z" fill="#5D9C57"/>
+<g fill="#9E9A8E"><ellipse cx="62" cy="276" rx="30" ry="12"/><ellipse cx="108" cy="288" rx="22" ry="9"/><ellipse cx="440" cy="290" rx="26" ry="10"/></g>
+<g transform="translate(340 250)"><g fill="#F7F4EA"><circle cx="0" cy="0" r="16"/><circle cx="-14" cy="4" r="12"/><circle cx="14" cy="4" r="12"/><circle cx="0" cy="10" r="13"/></g><ellipse cx="-26" cy="-2" rx="8" ry="9" fill="#3D3B46"/><rect x="-14" y="18" width="4" height="11" fill="#3D3B46"/><rect x="8" y="18" width="4" height="11" fill="#3D3B46"/></g>
+${R_(10,i=>`<path class="sw" d="M${20+i*48} 298q-3-22-10-34M${20+i*48} 298q2-26 4-40M${20+i*48} 298q6-20 14-30" stroke="#3F7B3E" stroke-width="3" fill="none" stroke-linecap="round" style="animation-delay:${-i*.5}s"/>`)}
+<g>${R_(9,i=>`<circle cx="${30+i*52}" cy="${272+(i%3)*8}" r="3" fill="${['#F58BA8','#FFE066','#B58CF0'][i%3]}"/>`)}</g>
+</svg>`},
+
+{title:'Sky Farm', cap:'Tethered air-kites ride the breeze above solar-striped fields and a green city.', svg:p=>`<svg ${SVGO}>
+<defs><linearGradient id="${p}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3F92E4"/><stop offset="1" stop-color="#CBE8FF"/></linearGradient></defs>
+<rect width="480" height="300" fill="url(#${p}a)"/>
+<g class="cloud" fill="#fff" opacity=".9"><ellipse cx="90" cy="214" rx="60" ry="14" opacity=".0"/><ellipse cx="96" cy="70" rx="60" ry="16"/><ellipse cx="134" cy="58" rx="44" ry="18"/><ellipse cx="390" cy="126" rx="70" ry="13"/></g>
+<g fill="#B9D2C6">${R_(8,i=>`<rect x="${286+i*24}" y="${150-((i*37)%40)}" width="16" height="${50+((i*37)%40)}" rx="7"/>`)}</g>
+<g fill="#6DB36A">${R_(8,i=>`<circle cx="${294+i*24}" cy="${150-((i*37)%40)}" r="7"/>`)}</g>
+<path d="M0 204Q120 164 260 194T480 172V300H0Z" fill="#78BE5C"/>
+<path d="M240 204L480 178V204L262 236Z" fill="#F2D14B"/><path d="M200 218L480 198V216L232 252Z" fill="#6F68C8"/>
+<path d="M0 252Q150 234 300 254T480 246V300H0Z" fill="#5FAF4F"/>
+<rect x="132" y="196" width="100" height="56" fill="#A47C55"/><polygon points="126,196 182,164 238,196" fill="#2F4B4E"/><circle cx="182" cy="164" r="13" fill="#DFF3F0" opacity=".7"/>
+<g fill="#EFE6D2"><rect x="0" y="116" width="12" height="144"/><rect x="92" y="116" width="10" height="144"/><rect x="0" y="206" width="104" height="8"/>${R_(8,i=>`<rect x="${6+i*12}" y="214" width="3" height="34"/>`)}</g>
+<path d="M0 118Q50 96 104 118V136H0Z" fill="#5FA050"/>
+<g>${[[14,200,'#E0405E'],[34,196,'#F6D44A'],[56,200,'#E0405E'],[78,198,'#F6D44A']].map(([x,y,c])=>`<circle cx="${x}" cy="${y}" r="7" fill="${c}"/>`).join('')}</g>
+<rect x="404" y="200" width="10" height="60" fill="#5A4331"/><circle cx="410" cy="176" r="40" fill="#2F6B3A"/><circle cx="388" cy="196" r="26" fill="#3E7F45"/><g fill="#E0453A"><circle cx="400" cy="166" r="3.5"/><circle cx="424" cy="182" r="3.5"/><circle cx="392" cy="200" r="3.5"/></g>
+${[[180,66,1,0],[286,108,.62,-1.5],[350,84,.46,-3],[420,124,.32,-4.5]].map(([x,y,s,d])=>`<g transform="translate(${x} ${y}) scale(${s})"><g class="bob" style="animation-delay:${d}s"><rect x="-44" y="-20" width="88" height="40" rx="20" fill="#FFF8E8" stroke="#E7DCC0" stroke-width="2"/><path d="M-44 0L-64 -18V18ZM44 0L62 -16V16Z" fill="#FFF8E8"/><path d="M-20 -20V20M0 -20V20M20 -20V20" stroke="#E7DCC0" stroke-width="2"/><path d="M0 20L-30 ${Math.round(200/s)}" stroke="#7AA77E" stroke-width="${(1.6/s).toFixed(1)}"/></g></g>`).join('')}
+</svg>`},
+
+{title:'Glasshouse at Dusk', cap:'Lanterns glow, data vines hum and fireflies drift around a living greenhouse.', svg:p=>`<svg ${SVGO}>
+<defs><linearGradient id="${p}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0B2227"/><stop offset="1" stop-color="#14453C"/></linearGradient></defs>
+<rect width="480" height="300" fill="url(#${p}a)"/>
+${R_(14,i=>`<circle class="tw" cx="${(i*83)%480}" cy="${((i*41)%100)+8}" r="1.3" fill="#fff" style="animation-delay:${-i*.4}s"/>`)}
+<circle cx="420" cy="46" r="18" fill="#FFF2C0" opacity=".9"/>
+<path d="M0 252Q240 232 480 252V300H0Z" fill="#0A1B1A"/>
+<path d="M70 254A170 170 0 0 1 410 254Z" fill="#9FE8DC" fill-opacity=".1" stroke="#8FE3D6" stroke-opacity=".7" stroke-width="2"/>
+<g stroke="#8FE3D6" stroke-opacity=".4" fill="none"><path d="M240 84V254M240 84Q170 120 150 254M240 84Q310 120 330 254M240 84Q120 140 105 254M240 84Q360 140 375 254M84 200H396M112 150H368"/></g>
+<path d="M240 254C236 214 246 192 240 152" stroke="#2E8A5A" stroke-width="7" fill="none" stroke-linecap="round"/>
+<g fill="#55D487">${R_(8,i=>`<ellipse cx="${240+(i%2?18:-18)}" cy="${240-i*12}" rx="${16-i}" ry="5" transform="rotate(${i%2?-30:30} ${240+(i%2?18:-18)} ${240-i*12})" opacity=".9"/>`)}</g>
+<g fill="#2FA86A"><ellipse cx="160" cy="236" rx="22" ry="8" transform="rotate(-25 160 236)"/><ellipse cx="146" cy="250" rx="18" ry="7"/><ellipse cx="324" cy="236" rx="22" ry="8" transform="rotate(25 324 236)"/><ellipse cx="338" cy="250" rx="18" ry="7"/></g>
+<g fill="none" stroke="#5AD6EA" stroke-width="1.6" class="flo"><path d="M240 152Q200 176 160 226"/><path d="M240 152Q282 178 324 226"/><path d="M240 152Q240 120 212 100"/></g>
+<g class="glowp"><circle cx="240" cy="152" r="22" fill="#5AD6EA" opacity=".25"/><circle cx="240" cy="152" r="8" fill="#9BF1FA"/></g>
+${[[130,122],[200,87],[280,87],[350,122]].map(([x,y],i)=>`<g class="swt" style="transform-origin:${x}px ${y}px;animation-delay:${-i*1.1}s"><path d="M${x} ${y}V${y+26}" stroke="#8FE3D6" stroke-opacity=".6"/><circle cx="${x}" cy="${y+32}" r="15" fill="#FFC46B" opacity=".25"/><circle cx="${x}" cy="${y+32}" r="6" fill="#FFC46B"/></g>`).join('')}
+${R_(12,i=>`<circle class="tw" cx="${50+(i*97)%380}" cy="${150+(i*53)%110}" r="2.2" fill="#E8FF8A" style="animation-delay:${-i*.5}s"/>`)}
+</svg>`},
+
+{title:'Garden Table', cap:'A long table under an old tree, set for neighbours, with a friendly garden-bot waving hello.', svg:p=>`<svg ${SVGO}>
+<defs><linearGradient id="${p}a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE8B0"/><stop offset="1" stop-color="#F6C98C"/></linearGradient></defs>
+<rect width="480" height="300" fill="url(#${p}a)"/>
+<path d="M0 190Q120 150 250 182T480 160V300H0Z" fill="#B9CF8E"/><path d="M0 226Q150 196 300 224T480 210V300H0Z" fill="#8FB872"/>
+<path d="M0 262Q150 244 300 264T480 256V300H0Z" fill="#6FA45B"/>
+<path d="M186 300C198 226 178 164 206 92L284 92C314 164 288 226 300 300Z" fill="#5A4331"/>
+<g fill="#3F7A3E">${R_(11,i=>`<circle cx="${70+i*34}" cy="${48+((i*29)%46)}" r="${34+(i%3)*8}"/>`)}</g>
+<g fill="#5B9A4A">${R_(7,i=>`<circle cx="${100+i*50}" cy="${30+((i*23)%30)}" r="${22+(i%2)*8}"/>`)}</g>
+<g class="cloud" fill="#FFF3B8" opacity=".3"><ellipse cx="150" cy="150" rx="46" ry="12"/><ellipse cx="330" cy="130" rx="38" ry="10"/></g>
+<polygon points="120,0 190,0 120,200 60,200" fill="#FFF6C8" opacity=".12"/>
+${[[110,96],[250,76],[372,104]].map(([x,y],i)=>`<g class="swt" style="transform-origin:${x}px ${y}px;animation-delay:${-i*1.3}s"><path d="M${x} ${y}V${y+28}" stroke="#5A4331" stroke-width="2"/><rect x="${x-9}" y="${y+28}" width="18" height="26" rx="5" fill="#E0B04A"/><rect x="${x-14}" y="${y+24}" width="28" height="40" rx="12" fill="#FFD36B" opacity=".25" class="glowp"/></g>`).join('')}
+<g fill="#6B4A2E"><rect x="56" y="262" width="36" height="8" rx="3"/><rect x="62" y="270" width="6" height="28"/><rect x="80" y="270" width="6" height="28"/><rect x="214" y="268" width="36" height="8" rx="3"/><rect x="220" y="276" width="6" height="22"/><rect x="238" y="276" width="6" height="22"/><rect x="360" y="262" width="36" height="8" rx="3"/><rect x="366" y="270" width="6" height="28"/><rect x="384" y="270" width="6" height="28"/></g>
+<polygon points="70,212 410,212 440,244 40,244" fill="#A8744A"/><polygon points="150,212 340,212 360,244 130,244" fill="#E7B04A" opacity=".9"/><rect x="60" y="244" width="360" height="10" fill="#7D5434"/><rect x="74" y="254" width="8" height="32" fill="#7D5434"/><rect x="398" y="254" width="8" height="32" fill="#7D5434"/>
+<circle cx="224" cy="200" r="17" fill="#E8782E"/><rect x="221" y="180" width="6" height="7" fill="#4C7A35"/>
+<g fill="#D8352C"><circle cx="262" cy="204" r="9"/><circle cx="278" cy="206" r="8"/><circle cx="166" cy="206" r="8"/></g>
+<g fill="#4FA24F"><ellipse cx="192" cy="204" rx="19" ry="8"/><ellipse cx="310" cy="206" rx="16" ry="7"/></g>
+<path d="M326 214q12-26 44 0z" fill="#B58850"/><g fill="#F0A33A"><circle cx="338" cy="204" r="6"/><circle cx="352" cy="203" r="6"/><circle cx="364" cy="207" r="5"/></g>
+<g transform="translate(414 214)"><g class="bob"><ellipse cx="0" cy="22" rx="20" ry="26" fill="#F08A4B"/><path d="M-22 2A22 22 0 0 1 22 2Z" fill="#F4A36A"/><circle cx="8" cy="-3" r="5" fill="#7FE9F2" class="glowp"/><rect class="wave" x="18" y="10" width="26" height="7" rx="3.5" fill="#D9743A"/><rect x="-14" y="46" width="8" height="12" rx="3" fill="#D9743A"/><rect x="6" y="46" width="8" height="12" rx="3" fill="#D9743A"/></g></g>
+${R_(8,i=>`<path class="sw" d="M${14+i*62} 298q-3-18-8-28M${14+i*62} 298q3-22 6-34" stroke="#4E8B3F" stroke-width="3" fill="none" stroke-linecap="round" style="animation-delay:${-i*.6}s"/>`)}
+</svg>`}
+];
+(function(){
+  const box = $('#scenes');
+  SCENES.forEach((s, i) => {
+    const f = document.createElement('figure'); f.className = 'scn rv';
+    f.innerHTML = `<div class="pic">${s.svg('sg' + i)}</div><figcaption><h3>${s.title}</h3><p>${s.cap}</p></figcaption>`;
+    box.appendChild(f);
+  });
+  const b = $('#pauseBtn');
+  b.addEventListener('click', () => {
+    const on = document.body.classList.toggle('calm');
+    b.setAttribute('aria-pressed', on); b.textContent = on ? 'Resume animations' : 'Pause animations';
+    dispatchEvent(new Event('calm'));
+  });
+})();
+
+/* ---------- projects ---------- */
+(function(){
+  const sprig = '<svg viewBox="0 0 60 80" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M30 80C28 60 34 44 30 20"/><path d="M30 60C16 56 10 46 12 36c12 0 18 10 18 24z" fill="currentColor" fill-opacity=".35"/><path d="M30 44C44 40 50 30 48 20c-12 0-18 10-18 24z" fill="currentColor" fill-opacity=".35"/><circle cx="30" cy="16" r="5" fill="var(--gold)" stroke="none"/></svg>';
+  function art(i){
+    const R = rng(i*97 + 5), pts = [];
+    for(let k = 0; k < 7; k++) pts.push([36 + k*68 + (R() - .5)*30, 40 + R()*150]);
+    let d = '', c = '';
+    pts.forEach((p, k) => { if(k){ const q = pts[k-1]; d += `<path class="ln" d="M${q[0].toFixed(0)} ${q[1].toFixed(0)}Q${((q[0]+p[0])/2).toFixed(0)} ${((q[1]+p[1])/2 + (R() - .5)*60).toFixed(0)} ${p[0].toFixed(0)} ${p[1].toFixed(0)}"/>`; } c += `<circle class="pt" cx="${p[0].toFixed(0)}" cy="${p[1].toFixed(0)}" r="5"/>`; });
+    return SCENES[(i + 2) % SCENES.length].svg('pj' + i) + `<svg class="net" viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">${d}${c}</svg>`;
+  }
+  const grid = $('#cards');
+  PROJECTS.forEach((p, i) => {
+    const no = String(i + 1).padStart(2, '0'), card = document.createElement('article');
+    card.className = 'card rv';
+    const btn = (label, url, cls) => url ? `<a class="btn ${cls} btn-sm" href="${url}" target="_blank" rel="noopener">${label}</a>` : `<a class="btn ${cls} btn-sm" href="#" aria-disabled="true" title="Add your link in the PROJECTS list">${label}</a>`;
+    card.innerHTML = `<div class="art">${p.image ? `<img src="${p.image}" alt="">` : art(i + 1)}<span class="sprig l">${sprig}</span><span class="sprig r">${sprig}</span>${p.image ? '' : '<span class="art-note">Image placeholder</span>'}</div>
+      <div class="card-body"><span class="card-no">Project ${no}</span><h3>${p.name}</h3><p>${p.description}</p>
+      <div class="tags">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      <div class="card-actions">${btn('View Project', p.live, 'btn-primary')}${btn('GitHub', p.github, 'btn-ghost')}</div></div>`;
+    grid.appendChild(card);
+  });
+  $$('[aria-disabled="true"]', grid).forEach(a => a.addEventListener('click', e => { e.preventDefault(); toast('This link has not been added yet.'); }));
+})();
+
+/* ---------- experience ---------- */
+(function(){
+  const vine = $('#vine');
+  EXPERIENCE.forEach((x, i) => {
+    const keys = Object.keys(x.details), li = document.createElement('li'); li.className = 'ex';
+    li.innerHTML = `<span class="ex-node" aria-hidden="true"></span><div class="ex-card">
+      <div class="ex-top"><div><h3>${x.org}</h3><p class="role">${x.role}</p></div><span class="chip"><span class="dot"></span>${x.status}</span></div>
+      <p class="meta">Start date: ${x.start}</p>
+      <div class="tabs" role="tablist" aria-label="${x.org} details">${keys.map((k, j) => `<button class="tab" role="tab" id="t${i}-${j}" aria-selected="${j === 0}" aria-controls="p${i}" tabindex="${j === 0 ? 0 : -1}">${k}</button>`).join('')}</div>
+      <div class="panel" role="tabpanel" id="p${i}" aria-labelledby="t${i}-0"></div></div>`;
+    vine.appendChild(li);
+    const tabs = $$('.tab', li), panel = $('.panel', li);
+    const show = j => { tabs.forEach((t, n) => { t.setAttribute('aria-selected', n === j); t.tabIndex = n === j ? 0 : -1; }); panel.setAttribute('aria-labelledby', `t${i}-${j}`); panel.innerHTML = `<b>${keys[j]}</b>${x.details[keys[j]]}`; panel.classList.remove('swap'); void panel.offsetWidth; panel.classList.add('swap'); };
+    tabs.forEach((t, j) => { t.addEventListener('click', () => show(j)); t.addEventListener('keydown', e => { if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){ const n = (j + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length; show(n); tabs[n].focus(); } }); });
+    show(0);
+  });
+  const seed = document.createElement('li'); seed.className = 'ex seed';
+  seed.innerHTML = '<span class="ex-node" aria-hidden="true"></span><p class="seed-text">The next experience will grow here.</p>';
+  vine.appendChild(seed);
+  const fill = $('.vine-fill', vine);
+  function prog(){ const r = vine.getBoundingClientRect(), p = Math.max(0, Math.min(1, (innerHeight*.65 - r.top)/r.height)); vine.style.setProperty('--p', reduce ? 1 : p.toFixed(3)); }
+  let tick = false;
+  addEventListener('scroll', () => { if(!tick){ tick = true; requestAnimationFrame(() => { tick = false; prog(); }); } }, {passive:true});
+  addEventListener('resize', prog); prog();
+})();
+
+/* ---------- courses ---------- */
+(function(){
+  const grid = $('#courseGrid');
+  const ribbon = '<svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="11" r="7"/><path d="M10 17l-2 8 6-3 6 3-2-8"/></svg>';
+  COURSES.forEach(c => {
+    const d = document.createElement('article'); d.className = 'course rv';
+    d.innerHTML = `<div class="course-top">${ribbon}<span class="meta">${c.date}</span></div><h3>${c.name}</h3><p>${c.provider}</p>${c.note ? '<p>' + c.note + '</p>' : ''}` +
+      (c.link ? `<a class="btn btn-ghost btn-sm" href="${c.link}" target="_blank" rel="noopener">View certificate</a>` : `<a class="btn btn-ghost btn-sm" href="#" aria-disabled="true">View certificate</a>`);
+    grid.appendChild(d);
+  });
+  $$('[aria-disabled="true"]', grid).forEach(a => a.addEventListener('click', e => { e.preventDefault(); toast('This link has not been added yet.'); }));
+})();
+
+/* ---------- piano ---------- */
+(function(){
+  const box = $('#piano'), petals = $('#petals'), readout = $('#pianoNote');
+  const W = [['C',261.63,'a'],['D',293.66,'s'],['E',329.63,'d'],['F',349.23,'f'],['G',392.00,'g'],['A',440.00,'h'],['B',493.88,'j'],['C',523.25,'k']];
+  const B = [[1,'C#',277.18,'w'],[2,'D#',311.13,'e'],[4,'F#',369.99,'t'],[5,'G#',415.30,'y'],[6,'A#',466.16,'u']];
+  const cols = ['var(--moss)','var(--gold)','var(--teal)','var(--cyan)'];
+  let ac = null, dragging = false, last = null;
+  function tone(f){
+    try{
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)(); if(ac.state === 'suspended') ac.resume();
+      const o = ac.createOscillator(), o2 = ac.createOscillator(), g = ac.createGain(), t = ac.currentTime;
+      o.type = 'triangle'; o2.type = 'sine'; o.frequency.value = f; o2.frequency.value = f*2;
+      g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.22, t + .012); g.gain.exponentialRampToValueAtTime(.0001, t + 1.5);
+      o.connect(g); o2.connect(g); g.connect(ac.destination); o.start(t); o2.start(t); o.stop(t + 1.6); o2.stop(t + 1.6);
+    }catch(e){}
+  }
+  /* a little leaf floats up from each key you play */
+  function petal(btn){
+    if(reduce || !petals || petals.childElementCount > 22 || document.body.classList.contains('calm')) return;
+    const r = btn.getBoundingClientRect(), p = petals.getBoundingClientRect(), el = document.createElement('i');
+    el.className = 'petal';
+    el.style.left = (r.left - p.left + r.width/2 - 7) + 'px';
+    el.style.top = (btn.classList.contains('bk') ? 50 : 100) + 'px';
+    el.style.setProperty('--dx', ((Math.random() - .5)*60).toFixed(0) + 'px');
+    el.style.background = cols[Math.random()*cols.length | 0];
+    el.addEventListener('animationend', () => el.remove());
+    petals.appendChild(el);
+  }
+  const keyMap = {};
+  function mk(cls, label, name, f, k, style){
+    const b = document.createElement('button'); b.type = 'button'; b.className = cls; b.setAttribute('aria-label', label); if(style) b.style.cssText = style;
+    if(cls === 'wk') b.textContent = k.toUpperCase();
+    const play = () => {
+      b.classList.add('down'); tone(f); petal(b);
+      if(readout) readout.textContent = 'Playing ' + name.replace('#', '\u266F');
+      setTimeout(() => b.classList.remove('down'), 160);
+    };
+    b._play = play;
+    b.addEventListener('pointerdown', e => { e.preventDefault(); dragging = true; last = b; play(); });
+    b.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); play(); } });
+    keyMap[k] = play; box.appendChild(b);
+  }
+  W.forEach(([n, f, k]) => mk('wk', 'Note ' + n, n, f, k));
+  B.forEach(([i, n, f, k]) => mk('bk', 'Note ' + n, n, f, k, `left:calc(${i*12.5}% - 3.5% + 1px)`));
+  /* glide: drag a finger or the mouse across the keys */
+  box.addEventListener('pointermove', e => {
+    if(!dragging) return;
+    const el = document.elementFromPoint(e.clientX, e.clientY), k = el && el.closest && el.closest('.wk,.bk');
+    if(k && k !== last && box.contains(k)){ last = k; k._play(); }
+  });
+  const stop = () => { dragging = false; last = null; };
+  addEventListener('pointerup', stop); addEventListener('pointercancel', stop);
+  addEventListener('keydown', e => {
+    if(e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+    if(/input|textarea|select/i.test(e.target.tagName)) return;
+    const fn = keyMap[e.key.toLowerCase()]; if(fn) fn();
+  });
+})();
+
+/* ---------- contact ---------- */
+(function(){
+  const list = $('#contactList');
+  const row = (label, value, url) => url
+    ? `<a class="c-row" href="${url}" target="_blank" rel="noopener"><div><small>${label}</small><span class="v">${value}</span></div><span aria-hidden="true">↗</span></a>`
+    : `<div class="c-row"><div><small>${label}</small><span class="v">${value}</span></div><span class="meta">Add link</span></div>`;
+  list.innerHTML = `<div class="c-row"><div><small>Email</small><span class="v" id="emailText">${CONFIG.email}</span></div><button class="btn btn-ghost btn-sm copy" id="copyBtn" type="button">Copy</button></div>` +
+    row('LinkedIn', CONFIG.linkedin ? CONFIG.linkedin.replace(/^https?:\/\/(www\.)?/, '') : 'linkedin.com/in/your-handle', CONFIG.linkedin) +
+    row('GitHub', CONFIG.github ? CONFIG.github.replace(/^https?:\/\/(www\.)?/, '') : 'github.com/your-handle', CONFIG.github);
+  $('#copyBtn').addEventListener('click', async () => {
+    try{ await navigator.clipboard.writeText(CONFIG.email); toast('Email copied'); }
+    catch(e){ const r = document.createRange(); r.selectNodeContents($('#emailText')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast('Email selected. Press Ctrl or Cmd + C to copy.'); }
+  });
+})();
+
+/* ---------- extra life: education growth + soft pointer glow ---------- */
+(function(){
+  const edu = $('.edu');
+  if(edu){
+    if(reduce || !('IntersectionObserver' in window)) edu.classList.add('grown');
+    else {
+      edu.classList.add('sprout');
+      new IntersectionObserver((es, io) => {
+        if(!es[0].isIntersecting) return; io.disconnect();
+        requestAnimationFrame(() => { edu.classList.remove('sprout'); edu.classList.add('grown'); });
+      }, {threshold:.35}).observe(edu);
+    }
+  }
+  $$('.card,.course,.hobby,.pillar,.scn,.plot').forEach(n => n.classList.add('glow'));
+  if(!reduce && matchMedia('(hover:hover)').matches){
+    addEventListener('pointermove', e => {
+      const t = e.target.closest && e.target.closest('.glow'); if(!t) return;
+      const r = t.getBoundingClientRect();
+      t.style.setProperty('--gx', (e.clientX - r.left) + 'px'); t.style.setProperty('--gy', (e.clientY - r.top) + 'px');
+    }, {passive:true});
+  }
+})();
+
+/* ---------- gallery lightbox ---------- */
+(function(){
+  const box = $('#lightbox'); if(!box || !box.showModal) return;
+  const img = $('img', box);
+  $$('#gallery .shot').forEach(b => b.addEventListener('click', () => {
+    img.src = b.dataset.full; img.alt = b.dataset.alt || ''; box.showModal();
+  }));
+  box.addEventListener('click', e => { if(e.target !== img) box.close(); });   // click outside the image closes
+  $('.lb-x', box).addEventListener('click', () => box.close());
+})();
+
+/* ---------- skyline, organic section edges, off-screen pausing ---------- */
+(function(){
+  // footer skyline: towers with rooftop gardens, trees and a solar row
+  const R = rng(31), W = 1200, H = 90;
+  let s = '', x = -10;
+  while(x < W){
+    const w = 26 + R()*34, h = 24 + R()*46, r = R() < .4 ? w/2 : 4;
+    s += `<rect x="${x.toFixed(0)}" y="${(H - h).toFixed(0)}" width="${w.toFixed(0)}" height="${(h + 10).toFixed(0)}" rx="${r.toFixed(0)}" fill="var(--sc-far)"/>`;
+    if(R() < .6) s += `<ellipse cx="${(x + w/2).toFixed(0)}" cy="${(H - h).toFixed(0)}" rx="${(w*.45).toFixed(0)}" ry="5" fill="var(--sc-leaf-b)"/>`;
+    x += w + 4 + R()*10;
+  }
+  for(x = 6; x < W; x += 24 + R()*40){
+    const r = 8 + R()*8;
+    s += `<rect x="${(x - 1).toFixed(0)}" y="${(H - r - 8).toFixed(0)}" width="3" height="14" fill="var(--sc-trunk)"/><circle cx="${x.toFixed(0)}" cy="${(H - r - 8).toFixed(0)}" r="${r.toFixed(0)}" fill="${R() < .5 ? 'var(--sc-leaf-a)' : 'var(--sc-leaf-b)'}"/>`;
+  }
+  for(x = 40; x < W; x += 220 + R()*160) s += `<polygon points="${x},${H - 14} ${x + 44},${H - 14} ${x + 52},${H - 28} ${x + 8},${H - 28}" fill="var(--sc-panel)"/>`;
+  s += `<path d="M0 ${H}V${H - 12}Q150 ${H - 20} 300 ${H - 12}T600 ${H - 12}T900 ${H - 12}T${W} ${H - 12}V${H}Z" fill="var(--bg)"/>`;
+  $('#skyline').innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMax slice">${s}</svg>`;
+
+  // soft hill edge at the top of every tinted band
+  $$('.sec.alt').forEach((sec, k) => {
+    const Q = rng(k*17 + 5); let d = 'M0 34V20', px = 0;
+    while(px < 1200){ const step = 90 + Q()*90, h = 4 + Q()*14; d += `Q${(px + step/2).toFixed(0)} ${h.toFixed(0)} ${(px + step).toFixed(0)} ${(10 + Q()*14).toFixed(0)}`; px += step; }
+    d += 'V34Z';
+    sec.insertAdjacentHTML('afterbegin', `<svg class="edge" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true"><path d="${d}" fill="var(--bg-alt)"/></svg>`);
+  });
+
+  // pause illustrations that are off screen
+  const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('idle', !e.isIntersecting)), {rootMargin:'80px'});
+  $$('.pic, .art').forEach(n => { n.classList.add('idle'); io.observe(n); });
+})();
+</script>
+
+</body></html>
