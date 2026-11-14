@@ -504,6 +504,47 @@ button.shot,.shot.has-img{position:relative;display:block;flex:var(--r,1) 1 0;mi
 .lightbox img{display:block;max-width:92vw;max-height:86vh;border-radius:18px;box-shadow:0 24px 60px -20px rgba(0,0,0,.7)}
 .lb-x{position:absolute;right:-6px;top:-46px;width:40px;height:40px;border:1.5px solid rgba(255,255,255,.7);border-radius:50%;background:rgba(10,24,17,.5);color:#fff;font-size:1.4rem;line-height:1;cursor:pointer}
 .lb-x:hover{background:rgba(10,24,17,.8)}
+
+/* =====================================================================
+   ROLE MATCH: front end for the Python (Flask) backend
+   ===================================================================== */
+.match-link{margin-top:26px;text-align:center;color:var(--ink-soft)}
+.match-link a,.inline-link{color:var(--teal);font-weight:600;text-underline-offset:3px}
+.match{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.match-form,.match-out{padding:26px;border:1.5px solid var(--line);border-radius:24px;background:var(--surface)}
+.match-form label{display:block;margin-bottom:10px;font:600 .95rem 'Sora',sans-serif}
+.match-form textarea{display:block;width:100%;min-height:210px;resize:vertical;padding:14px 16px;border:1.5px solid var(--line);border-radius:16px;background:var(--bg);color:var(--ink);font:inherit;font-size:.95rem;line-height:1.55;transition:border-color .2s,box-shadow .2s}
+.match-form textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 4px color-mix(in srgb,var(--teal) 18%,transparent)}
+.match-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;margin-top:14px}
+.match-row .btn{padding:11px 20px}
+.match-row .btn[disabled]{opacity:.6;cursor:progress}
+.match-count{margin-left:auto;font:500 .72rem/1 'IBM Plex Mono',monospace;letter-spacing:.06em;color:var(--ink-soft)}
+.match-status{min-height:1.4em;margin-top:12px;font-size:.9rem;color:var(--ink-soft)}
+.match-status.err{color:#B4452F}
+:root[data-theme="dark"] .match-status.err{color:#F0937F}
+.match-out{animation:fadeUp .4s ease-out}
+.match-out[hidden]{display:none}
+.m-score{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.m-num{font:700 2.8rem/1 'Sora',sans-serif;color:var(--teal)}
+.m-num small{font-size:1.1rem;font-weight:600;color:var(--ink-soft)}
+.m-label{font:600 1.05rem 'Sora',sans-serif}
+.m-bar{height:12px;margin:14px 0 6px;border-radius:999px;background:var(--bg-alt);overflow:hidden}
+.m-bar i{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--moss),var(--gold));transition:width 1s cubic-bezier(.2,.7,.2,1)}
+.m-sum{margin:14px 0 0;color:var(--ink-soft)}
+.m-h{margin:22px 0 10px;font:500 .7rem/1 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+.m-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.m-chip{display:inline-flex;align-items:center;padding:7px 14px;border:1.5px solid var(--moss);border-radius:999px;background:color-mix(in srgb,var(--moss) 12%,transparent);color:var(--ink);font:500 .85rem 'Figtree',sans-serif;text-decoration:none;cursor:pointer;transition:transform .2s,border-color .2s}
+a.m-chip:hover,button.m-chip:hover{transform:translateY(-2px);border-color:var(--teal)}
+.m-chip.gap{border:1.5px dashed var(--sage);background:transparent;color:var(--ink-soft);cursor:default}
+.m-chip small{margin-left:8px;opacity:.7;font-size:.72rem}
+.m-empty{margin:0;color:var(--ink-soft);font-size:.92rem}
+.m-close{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.m-close a{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border:1.5px solid var(--line);border-radius:14px;background:var(--bg);color:var(--ink);text-decoration:none;transition:border-color .2s,transform .2s}
+.m-close a:hover{border-color:var(--teal);transform:translateX(3px)}
+.m-close b{font:600 .92rem 'Sora',sans-serif}
+.m-close span{flex:none;font:500 .68rem/1 'IBM Plex Mono',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.m-note{margin:22px 0 0;padding-top:14px;border-top:1px dashed var(--line);font-size:.8rem;line-height:1.5;color:var(--ink-soft)}
+@media (max-width:860px){.match{grid-template-columns:1fr}.match-form,.match-out{padding:20px}}
 </style>
 
 <a class="skip" href="#main">Skip to content</a>
@@ -703,6 +744,7 @@ button.shot,.shot.has-img{position:relative;display:block;flex:var(--r,1) 1 0;mi
       <p class="sec-sub">Prediction, network design and image diagnosis: three ideas I turned into working prototypes.</p>
     </div>
     <div class="cards" id="cards"></div>
+    <p class="match-link rv">Hiring for a role? <a href="#match">See how my skills match it &rarr;</a></p>
   </div>
 </section>
 
@@ -799,13 +841,37 @@ button.shot,.shot.has-img{position:relative;display:block;flex:var(--r,1) 1 0;mi
   </div>
 </section>
 
+<!-- ROLE MATCH (talks to the Python backend in /backend) -->
+<section class="sec" id="match">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Role Match</p>
+      <h2>Does My Garden Fit Your Role?</h2>
+      <p class="sec-sub">Paste a job description. A small Python service reads it, compares it with my skills, projects and courses, and shows where we overlap and where I still have growing to do.</p>
+    </div>
+    <div class="match rv">
+      <form class="match-form" id="matchForm" novalidate>
+        <label for="matchText">Job description or list of requirements</label>
+        <textarea id="matchText" rows="9" maxlength="6000" placeholder="Paste the role here, for example: skills required, responsibilities, tools you use..."></textarea>
+        <div class="match-row">
+          <button class="btn btn-primary" type="submit" id="matchGo">Check the fit</button>
+          <button class="btn btn-ghost" type="button" id="matchEx">Try an example</button>
+          <span class="match-count" id="matchCount" aria-hidden="true">0 / 6000</span>
+        </div>
+        <p class="match-status" id="matchStatus" role="status" aria-live="polite"></p>
+      </form>
+      <div class="match-out" id="matchOut" hidden></div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="sec alt" id="contact">
   <div class="wrap contact">
     <div class="sec-head rv" style="margin:0">
       <p class="eyebrow">Contact</p>
       <h2>Let's Grow Something Together.</h2>
-      <p class="sec-sub">Open to conversations about AI and ML, internships, projects and ideas worth building.</p>
+      <p class="sec-sub">Open to conversations about AI and ML, internships, projects and ideas worth building. Reading a job description? <a href="#match" class="inline-link">Check how I match it.</a></p>
     </div>
     <div class="contact-list rv" id="contactList"></div>
   </div>
@@ -831,7 +897,10 @@ const CONFIG = {
   email: 'vanshika.jana@gmail.com',
   resume: '',     // link to your resume (PDF or Drive link)
   linkedin: 'https://www.linkedin.com/in/vanshika-jana-69b44637a/',
-  github: 'https://github.com/Vanshika2907'
+  github: 'https://github.com/Vanshika2907',
+  // Address of the Python (Flask) Role Match service. Leave '' when the page is served by backend/app.py itself.
+  // Once the backend is hosted, put its address here, e.g. 'https://your-app.onrender.com'
+  matchApi: ''
 };
 const PROJECTS = [
   {
@@ -856,7 +925,7 @@ const PROJECTS = [
     tags: ['Artificial Intelligence','Image Classification'],
     image: 'assets/project-plant.jpg',
     live: 'https://plant-disease-detection-bio.streamlit.app/',
-    github: 'https://github.com/Vanshika2907/Plant-Disease-Detection'
+    github: ''
   }
 ];
 const EXPERIENCE = [{
@@ -1595,6 +1664,92 @@ ${R_(8,i=>`<path class="sw" d="M${14+i*62} 298q-3-18-8-28M${14+i*62} 298q3-22 6-
   }));
   box.addEventListener('click', e => { if(e.target !== img) box.close(); });   // click outside the image closes
   $('.lb-x', box).addEventListener('click', () => box.close());
+})();
+
+/* ---------- role match (calls the Python backend) ---------- */
+(function(){
+  const form = $('#matchForm'), ta = $('#matchText'), go = $('#matchGo'), ex = $('#matchEx'),
+        status = $('#matchStatus'), out = $('#matchOut'), count = $('#matchCount');
+  if(!form) return;
+
+  /* Where is the backend? Same address when the page is served by backend/app.py, or CONFIG.matchApi once hosted. */
+  const local = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  const API = CONFIG.matchApi ? CONFIG.matchApi.replace(/\/$/, '') : (local ? '' : null);
+
+  const EXAMPLE = 'Machine Learning Intern. You will work in Python and Jupyter notebooks to build and evaluate classification models, ' +
+    'collaborate through Git and GitHub, and explore generative AI tools. Familiarity with TensorFlow or PyTorch and SQL is a plus. ' +
+    'We value curiosity and clear communication.';
+
+  const say = (msg, isErr) => { status.textContent = msg || ''; status.classList.toggle('err', !!isErr); };
+  const el = (tag, cls, text) => { const n = document.createElement(tag); if(cls) n.className = cls; if(text != null) n.textContent = text; return n; };
+
+  ta.addEventListener('input', () => { count.textContent = ta.value.length + ' / ' + ta.maxLength; });
+  ex.addEventListener('click', () => { ta.value = EXAMPLE; ta.dispatchEvent(new Event('input')); ta.focus(); say(''); });
+
+  /* a chip or card that jumps to the matching section */
+  function jump(node, section){
+    node.addEventListener('click', e => { if(window.TG){ e.preventDefault(); TG.travel(section); } });
+    return node;
+  }
+
+  function render(d){
+    out.replaceChildren();
+    const score = el('div', 'm-score');
+    const num = el('span', 'm-num', String(d.score)); num.append(el('small', null, ' / 100'));
+    score.append(num, el('span', 'm-label', d.label));
+    const bar = el('div', 'm-bar'), fill = el('i'); bar.append(fill); bar.setAttribute('role', 'img'); bar.setAttribute('aria-label', 'Match score ' + d.score + ' out of 100');
+    out.append(score, bar, el('p', 'm-sum', d.summary));
+
+    out.append(el('h3', 'm-h', 'Where we overlap'));
+    if(d.matched.length){
+      const ul = el('ul', 'm-chips');
+      d.matched.forEach(m => {
+        const li = el('li'), a = el('a', 'm-chip', m.name); a.href = m.section; a.title = m.detail; jump(a, m.section);
+        li.append(a); ul.append(li);
+      });
+      out.append(ul);
+    } else out.append(el('p', 'm-empty', 'No direct skill matches were found in this text.'));
+
+    if(d.gaps.length){
+      out.append(el('h3', 'm-h', 'Asked for, not on my portfolio yet'));
+      const ul = el('ul', 'm-chips');
+      d.gaps.forEach(g => { const li = el('li'); li.append(el('span', 'm-chip gap', g)); ul.append(li); });
+      out.append(ul);
+    }
+
+    if(d.closest.length){
+      out.append(el('h3', 'm-h', 'Closest in my work'));
+      const ul = el('ul', 'm-close');
+      d.closest.forEach(c => {
+        const li = el('li'), a = el('a'); a.href = c.section; jump(a, c.section);
+        a.append(el('b', null, c.title), el('span', null, c.type)); li.append(a); ul.append(li);
+      });
+      out.append(ul);
+    }
+    out.append(el('p', 'm-note', d.basis + ' This is a keyword and wording comparison made by a small Python service, not a hiring verdict.'));
+    out.hidden = false;
+    requestAnimationFrame(() => requestAnimationFrame(() => { fill.style.width = d.score + '%'; }));
+    if(innerWidth <= 860) out.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'nearest'});
+  }
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const text = ta.value.trim();
+    if(text.split(/\s+/).filter(Boolean).length < 5){ say('Please paste a little more: at least 5 words.', true); ta.focus(); return; }
+    if(API === null){ say('The Role Match service is offline right now. Please try again later, or reach me through the contact details below.', true); return; }
+    go.disabled = true; go.textContent = 'Reading...'; say('Comparing with my skills, projects and courses...');
+    const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 20000);   // free hosts can take a while to wake up
+    try{
+      const r = await fetch(API + '/api/match', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({text}), signal: ctl.signal});
+      const d = await r.json().catch(() => ({}));
+      if(!r.ok){ say(d.error || 'Something went wrong. Please try again.', true); return; }
+      say(''); render(d);
+    }catch(err){
+      say(err.name === 'AbortError' ? 'The service is taking too long to wake up. Please try again in a moment.' : 'I could not reach the Role Match service. Please try again later.', true);
+    }finally{
+      clearTimeout(timer); go.disabled = false; go.textContent = 'Check the fit';
+    }
+  });
 })();
 
 /* ---------- skyline, organic section edges, off-screen pausing ---------- */

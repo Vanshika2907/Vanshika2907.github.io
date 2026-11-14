@@ -1,0 +1,59 @@
+{
+  "_note": "Everything the matcher knows about Vanshika. It mirrors the content already shown on the portfolio page. Add or edit entries here when the page changes; nothing else needs touching.",
+
+  "skills": [
+    {"name": "Python", "category": "Programming", "description": "General-purpose language widely used for AI and data work.", "aliases": ["python"]},
+    {"name": "Java", "category": "Programming", "description": "Object-oriented language for building software.", "aliases": ["java"]},
+    {"name": "Artificial Intelligence", "category": "AI & Machine Learning", "description": "Building systems that handle tasks needing human-like intelligence.", "aliases": ["artificial intelligence", "ai"]},
+    {"name": "Machine Learning", "category": "AI & Machine Learning", "description": "Algorithms that learn patterns from data.", "aliases": ["machine learning", "ml"]},
+    {"name": "Frontend Development", "category": "Development", "description": "Designing and building what people see and use in the browser.", "aliases": ["frontend", "front-end", "front end"]},
+    {"name": "HTML", "category": "Development", "description": "The structure of every web page.", "aliases": ["html", "html5"]},
+    {"name": "CSS", "category": "Development", "description": "Styling and layout for the web.", "aliases": ["css", "css3"]},
+    {"name": "JavaScript", "category": "Development", "description": "The language that makes web pages interactive.", "aliases": ["javascript", "js"]},
+    {"name": "Git", "category": "Tools", "description": "Version control for tracking changes in code.", "aliases": ["git"]},
+    {"name": "GitHub", "category": "Tools", "description": "Hosting and collaboration for Git projects.", "aliases": ["github"]},
+    {"name": "VS Code", "category": "Tools", "description": "A popular code editor.", "aliases": ["vs code", "vscode", "visual studio code"]},
+    {"name": "Jupyter Notebook", "category": "Tools", "description": "Interactive notebooks for code, notes and results.", "aliases": ["jupyter", "jupyter notebook"]}
+  ],
+
+  "topics": [
+    {"name": "Logistic Regression", "source": "Bank Customer Churn Predictor", "section": "#projects", "aliases": ["logistic regression"]},
+    {"name": "Classification", "source": "Bank Customer Churn Predictor and Plant Disease Detection", "section": "#projects", "aliases": ["classification", "classifier"]},
+    {"name": "Minimum Spanning Trees", "source": "SmartRoute AI", "section": "#projects", "aliases": ["minimum spanning tree", "minimum spanning trees", "mst"]},
+    {"name": "Graph Optimization", "source": "SmartRoute AI", "section": "#projects", "aliases": ["graph optimization", "graph algorithms", "graph algorithm", "network design"]},
+    {"name": "Image Classification", "source": "Plant Disease Detection", "section": "#projects", "aliases": ["image classification"]},
+    {"name": "Graph Neural Networks", "source": "Course: Graph Neural Networks", "section": "#courses", "aliases": ["graph neural network", "graph neural networks", "gnn", "gnns"]},
+    {"name": "Neural Networks", "source": "Course: Graph Neural Networks", "section": "#courses", "aliases": ["neural network", "neural networks"]},
+    {"name": "Generative AI", "source": "Course: What is Generative AI?", "section": "#courses", "aliases": ["generative ai", "genai", "gen ai"]},
+    {"name": "Discrete Mathematics", "source": "Course: Discrete Mathematics", "section": "#courses", "aliases": ["discrete mathematics", "discrete math"]},
+    {"name": "Google Colab", "source": "Internship at FLYRANK AI", "section": "#experience", "aliases": ["google colab", "colab"]}
+  ],
+
+  "documents": [
+    {"type": "Project", "title": "Bank Customer Churn Predictor", "section": "#projects",
+     "text": "Estimate a customer's likelihood of exiting their banking relationship using behavioral, financial, engagement, and service indicators. Machine Learning. Logistic Regression."},
+    {"type": "Project", "title": "SmartRoute AI", "section": "#projects",
+     "text": "Explore how predicted connection costs can guide cost-effective network design using Minimum Spanning Trees. Machine Learning. Graph Optimization. Minimum Spanning Trees."},
+    {"type": "Project", "title": "Plant Disease Detection", "section": "#projects",
+     "text": "AI powered Disease Detection. Artificial Intelligence. Image Classification."},
+    {"type": "Course", "title": "What is Generative AI?", "section": "#courses",
+     "text": "LinkedIn Learning course. Generative AI tools, artificial intelligence."},
+    {"type": "Course", "title": "Programming Foundations: Discrete Mathematics", "section": "#courses",
+     "text": "LinkedIn Learning course. Discrete mathematics and programming foundations."},
+    {"type": "Course", "title": "Learning Graph Neural Networks", "section": "#courses",
+     "text": "LinkedIn Learning course. Neural networks, graph networks, artificial intelligence."},
+    {"type": "Experience", "title": "AI / Technology Intern at FLYRANK AI", "section": "#experience",
+     "text": "Understanding how AI connects to real-world problems. Technologies: Google Colab, Python. Completed the Generative AI course."},
+    {"type": "Education", "title": "Computer Science and Engineering at Jain University", "section": "#education",
+     "text": "Second-year Computer Science and Engineering student specializing in Artificial Intelligence and Machine Learning."}
+  ],
+
+  "gap_terms": [
+    "sql", "mysql", "postgresql", "mongodb", "nosql", "react", "angular", "vue", "node.js", "typescript",
+    "django", "flask", "fastapi", "spring", "rest api", "docker", "kubernetes", "aws", "azure", "gcp",
+    "linux", "tensorflow", "pytorch", "keras", "scikit-learn", "pandas", "numpy", "c++", "c#", "golang",
+    "rust", "deep learning", "computer vision", "nlp", "natural language processing", "llm", "data analysis",
+    "data visualization", "tableau", "power bi", "excel", "statistics", "ci/cd", "devops", "mlops",
+    "microservices", "spark", "hadoop", "kafka", "figma", "agile"
+  ]
+}
